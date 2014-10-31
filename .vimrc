@@ -1,4 +1,89 @@
 " -------------------------------------------------------------------------
+" TIPS
+" =========================================================================
+"
+" __________________ SEARCH/REPLACE/DELETE
+"
+" Ctrl-n Ctrl-p     : complete word (insert mode)
+" .                 : the last inserted text
+" *                 : search current word under cursor and move to next matched
+" * ` `             : search and return to current word
+" #                 : previous word under cursor
+" /word             : search 'word' from top
+" ?word             : search 'word' from bottom
+" %s/old/new/g[w]   : replace all occurences [with confirmation]
+" 5,$s/old/new/g    : replace all occurences from line 5 to EOF
+" .,+5s/old/new/g   : replace all occurences from current line and 5 lines after that
+" .,9[g|v]/foo/d    : delete any lines [containing|not containing] 'foo' from
+"                     the current line through the next 9 lines
+" %g/foo/m$         : move all lines containing 'foo' to the end of file
+"
+" ___________________ FORMAT
+"
+" V[u|U]            : lower|upper-case whole line
+" g~~               : invert case of whole line
+" %!fmt             : align all lines
+"
+" ___________________ MOVING SCREEN/CURSOR
+"
+" [n]h/l            : move [n] character(s) left/right
+" [n]j/k            : move [n] row(s) down/up
+" [n]w/b            : move to beginning of [n] next/previous word(s)
+" 0                 : move to beginning of line
+" [gg|G]            : move to first/last line
+" [H|M|L]           : move to top/middle/bottom of screen
+" Ctrl-[Y|E]        : move the screen up/down by 1 row
+" z[h|l]            : move the screen to left/right
+"
+" ___________________ MARK/REGISTER
+"
+" m[a-z]            : set [a-z] mark at current location
+" ['|`][a-z]        : move to [beginning of line/exact location] of [a-z] mark
+" [d|y][a-z]        : cut/copy the from [a-z] mark to the next mark
+" [{|}]             : move to the beginning/end of current paragraph
+" { [d|y]}          : cut/copy a paragraph at current cursor
+" y}                : copy paragraph if already at the first line of the paragraph
+" y{                : copy paragraph if already at the last line of the paragraph
+" "ay/foo           : yank a copy of text from current cursor to the next line
+"                     containing string 'foo' to register 'a'
+" "aP               : paste a copy from 'a' register before the current line
+"
+"___________________ MISC
+"
+" :w !diff % -      : show diff of last saved version with current unsaved version
+"
+"___________________ vim-trailing-whitespace
+"
+"___________________ NERDTree
+"
+" gt|gT             : navigate forward|backward between tabs
+" Ctrl-ww           : switch between windows
+" s                 : open in vertical split window
+" t|T               : open in new[silent] tab
+"
+"___________________ CtrlP
+"
+" Ctrl-d            : switch to search by filename only instead of full path
+" <F5>              : purge the cache
+" Ctrl-r            : switch to regexp mode
+" Ctrl-z            : mark/unmark files
+" Ctrl-o            : open marked files
+" Ctrl-t|v|x        : open selected entry in new tab|split
+" Ctrl-w            : switch between windows
+"
+"___________________ Lawrencium
+"
+" :Hgvdiff          : diff in vertical split windows
+" :Hgstatus
+"
+"___________________ Tagbar
+"
+" p                 : jump to the tag under cursor, stay in Tagbar window
+" P                 : open the tag in a preview window
+" <Space>           : display the prototype of the current tag in command line
+" q                 : close Tagbar window
+"
+" -------------------------------------------------------------------------
 " MAPPING SUMMARY
 " =========================================================================
 " <F1>  :help [vim default]
