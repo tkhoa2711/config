@@ -111,8 +111,8 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 "
 " Use pathogen to easily modify the runtime path
 " and include all plugins under ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
 
 " -------------------------------------------------------------------------
 " HISTORY
