@@ -1,4 +1,4 @@
-config
+#### config
 ======
 
-My own config/setting
+My own configs/settings/dotfiles
