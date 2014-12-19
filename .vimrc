@@ -23,13 +23,15 @@
 " V[u|U]            : lower|upper-case whole line
 " g~~               : invert case of whole line
 " %!fmt             : align all lines
+" retab             : change all existing tab characters to match current tab settings
 "
 " ___________________ MOVING SCREEN/CURSOR
 "
-" [n]h/l            : move [n] character(s) left/right
-" [n]j/k            : move [n] row(s) down/up
-" [n]w/b            : move to beginning of [n] next/previous word(s)
+" [n]h|l            : move [n] character(s) left/right
+" [n]j|k            : move [n] row(s) down/up
+" [n]w|b            : move to beginning of [n] next/previous word(s)
 " 0                 : move to beginning of line
+" $                 : move to end of line
 " [gg|G]            : move to first/last line
 " [H|M|L]           : move to top/middle/bottom of screen
 " Ctrl-[Y|E]        : move the screen up/down by 1 row
@@ -40,7 +42,7 @@
 " m[a-z]            : set [a-z] mark at current location
 " ['|`][a-z]        : move to [beginning of line/exact location] of [a-z] mark
 " [d|y][a-z]        : cut/copy the from [a-z] mark to the next mark
-" [{|}]             : move to the beginning/end of current paragraph
+" {|}               : move to the beginning/end of current paragraph
 " { [d|y]}          : cut/copy a paragraph at current cursor
 " y}                : copy paragraph if already at the first line of the paragraph
 " y{                : copy paragraph if already at the last line of the paragraph
@@ -119,7 +121,7 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 " =========================================================================
 
 set hidden                      " remember undo after exit
-set history=1000
+set history=10000
 set undolevels=1000
 set nobackup                    " never let vim write a backup file, they did that in the 70's
 
@@ -186,7 +188,8 @@ set autoindent                  " auto-indentation
 set pastetoggle=<F3>            " toggle on/off paste mode. Turn on paste-mode when pasting already-indented text
 set tabstop=4
 "set softtabstop=4              " indicate the number of spaces to insert instead of tab when pressing Tab (in Insert mode)
-"set expandtab                  " turn a tab into spaces
+set expandtab                   " turn a tab into spaces
+                                " use Ctrl-V <tab> to insert real tab character
 "set lazyredraw                 " no redraw in macros
 set shiftwidth=4                " nuber of spaces to use for auto-indenting when using << and >>
 set smarttab                    " insert tabs on the start of lines according to shiftwidth, not tabstop
@@ -204,7 +207,7 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 " =========================================================================
 "
 " Scrolling with mouse
-" Note : it will affect cpoy/paste with mouse i.e. being changed to visual mode
+" Note : it will affect copy/paste with mouse i.e. being changed to visual mode
 "set mouse=a " - to be enabled when needed
 map <ScrollWheelUp> 3<C-Y>
 map <scrollWheelDown> 3<C-E>
