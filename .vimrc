@@ -220,9 +220,10 @@ map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 set sidescroll=1                " scrolling horizontally by 1 each time the cursor move
 set sidescrolloff=4             " minimum distance between cursor and terminal's right-border
 
-                                " scroll 10 characters to the right
+" Scroll 10 characters to the right
 map <C-L> 10zl
-                                " scroll 10 characters to the left
+
+" Scroll 10 characters to the left
 map <C-H> 10zh
 
 " Scroll vertically
@@ -250,6 +251,10 @@ set noerrorbells                " don't beep too, my PC is mute
 
 " you guess what it does >:)
 nnoremap ; :
+
+" ignore unnecessary warning with these 2 frequently-used keys
+map :W :w
+map :Q :q
 
 
 " -------------------------------------------------------------------------
