@@ -32,14 +32,14 @@ COMMENT
 # OS-specific configs
 # -----------------------------------------------------------------------
 case "$OSTYPE" in
-    linux*)
+    linux*)     # Linux
         alias duhere='\du -h --max-depth=1'
         ;;
     
-    bsd*)
+    bsd*)       # BSD
         ;;
     
-    solaris*)
+    solaris*)   # Solaris
         ;;
     
     darwin*)    # Mac OS X
@@ -52,6 +52,12 @@ case "$OSTYPE" in
         # my own config on Mac OS
         alias devdir='cd ~/source/dev/'
         alias sourcedir='cd ~/source'
+        ;;
+    
+    cygwin)     # Cygwin on Windows
+        ;;
+    
+    msys)       # Windows, MinGW
         ;;
 
     *)
