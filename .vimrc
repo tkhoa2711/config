@@ -120,10 +120,14 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 " HISTORY
 " =========================================================================
 
-set hidden                      " remember undo after exit
+set hidden                      " it hides buffers instead of closing them
+                                " you can have unwritten changes to a file
+                                " and be able to open new file with :e
+                                " undo buffers and marks are preserved while the buffer is opened
 set history=10000
 set undolevels=1000
 set nobackup                    " never let vim write a backup file, they did that in the 70's
+"set noswapfile
 
 
 " -------------------------------------------------------------------------
@@ -136,6 +140,11 @@ set t_Co=256
 "colorscheme monokai
 "colorscheme torte
 
+" highlight tab characters, trailing whitespaces and invisible spaces visually
+" use # at end of line to mark lines that extend off-screen
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+autocmd filetype html, xml set listchars-=tab   " not showing tabs for these filetypes
 
 " -------------------------------------------------------------------------
 " SEARCHING
