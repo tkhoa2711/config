@@ -146,7 +146,7 @@ set t_Co=256
 " use # at end of line to mark lines that extend off-screen
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-autocmd filetype html, xml set listchars-=tab   " not showing tabs for these filetypes
+autocmd filetype html,xml set listchars-=tab:>.     " not showing tabs for these filetypes
 
 " -------------------------------------------------------------------------
 " SEARCHING
