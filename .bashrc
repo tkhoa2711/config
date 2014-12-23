@@ -69,6 +69,7 @@ esac
 # aliases
 # -----------------------------------------------------------------------
 # directory
+alias l='ll'
 alias ls='ls -F -color'
 alias ll='ls -ahltr -color'
 alias l.='ls -adlrt .* -color'
