@@ -216,6 +216,7 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 vmap Q gq
 nmap Q gqap
 
+
 " -------------------------------------------------------------------------
 " MOUSE/SCROLLING
 " =========================================================================
@@ -247,6 +248,7 @@ set scrolloff=2                 " 2 lines above/below cursor when scrolling up/d
 nnoremap j gj
 nnoremap k gk
 
+
 " -------------------------------------------------------------------------
 " DIFF
 " =========================================================================
@@ -272,6 +274,9 @@ nnoremap ; :
 " ignore unnecessary warning with these 2 frequently-used keys
 map :W :w
 map :Q :q
+
+" use w!! to edit a file that need root privileges after already opened it
+cmap w!! w !sudo tee % >/dev/null
 
 
 " -------------------------------------------------------------------------
