@@ -24,6 +24,8 @@
 " g~~               : invert case of whole line
 " %!fmt             : align all lines
 " retab             : change all existing tab characters to match current tab settings
+" gq                : format the current line
+" gqap              : format the current paragraph
 "
 " ___________________ MOVING SCREEN/CURSOR
 "
@@ -210,6 +212,9 @@ set smarttab                    " insert tabs on the start of lines according to
 
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
+" use Q for formatting the current paragraph (or selection in visual mode)
+vmap Q gq
+nmap Q gqap
 
 " -------------------------------------------------------------------------
 " MOUSE/SCROLLING
@@ -238,6 +243,9 @@ map <C-H> 10zh
 " Scroll vertically
 set scrolloff=2                 " 2 lines above/below cursor when scrolling up/down
 
+" move cursor to the next row in the editor, not the next line, when text wrapping is enabled
+nnoremap j gj
+nnoremap k gk
 
 " -------------------------------------------------------------------------
 " DIFF
