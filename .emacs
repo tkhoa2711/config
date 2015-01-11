@@ -1,50 +1,65 @@
 ;;;; my personal Emacs config
 
 ;; ===========================================================================
-;;;; just my note for some frequently used commands
-
-;;; == EMACS ==
-;; buffer, windows
+;; just my note for some frequently used commands
+;
+;; ===========
+;; == EMACS ==
+;; ===========
+;
+;; BUFFERS, WINDOWS
 ; C-x k : close buffer
 ; C-x 1 : remove split windows
 ; C-x 2 : split window horizontally
 ; C-x 3 : split window vertically
 ;
-;; command control
+;; COMMAND, CONTROL
 ; C-x [z*] : repeat last command
 ;
-;; editing
-; C-x u : undo
+;; EDITING
+; [C-x u|C-_] : undo
 ; C-x u C-x u : redo
 ; C-_ : redo (not portable)
 ; M-x revert-buffer : undo all changes
 ; C-w : cut
 ; M-w : copy
 ; C-y : paste (yank)
+; M-[del|d] : delete word backward/forward
+; C-k : kill (delete) line from the current cursor
+; C-a C-k : kill whole line
 ;
-;; navigation, search
+;; FORMATTING
+; M-u : uppercase word
+; M-l : lowercase word
+; M-c : capitalize word
+;
+;; NAVIGATION, SEARCH
 ; C-[f|b] : move forward/backward one character
-; N-[f|b] : move forward/backward one word
+; M-[f|b] : move forward/backward one word
 ; C-[s|r] : search forward/backward
 ; C-g : return to where search started (only if still in search mode)
 ;
-;;; ----------------------------------
-;;; == SLIME ==
+;; ===========
+;; == SLIME ==
+;; ===========
+;
 ; M-. : jump to definition of function under the cursor
 ; M-, : jump back
 ; C-c C-d d : show symbol definition (when on symbol)
 ; C-c C-d h : open symbol definition (when on symbol) from CL hyperspec in browser
 ;
-;; compilation, messages
+;; COMPILATION, MESSAGES
 ; C-c C-c : compile current form (funtion)
 ; C-c C-k : compile current buffer (file)
 ; M-[n|p] : step forward/backward through annotations post compilation
 ;
-;; debugging
+;; DEBUGGING
 ; , : enter command
 ;
 
 ;; ===========================================================================
+
+(set-language-environment "utf-8")
 
 ;; in OS X use 'cmd as 'meta key
 ; (setq mac-command-modifier 'meta)
@@ -61,7 +76,9 @@
   (set-foreground-color "white")
   (set-background-color "black"))
 
-;; == auto-save and backup ==
+;; ============
+;; == BACKUP ==
+;; ============
 ;; put all backup files in one nice place if possible
 ;; uncomment these if you wish to keep all in one place
 (if (file-directory-p "~/.backup")
@@ -79,7 +96,9 @@
   (setf show-trailing-whitespace (not show-trailing-whitespace)))
 
 ;; ===========================================================================
-;;;; Loading SLIME 
+;; Loading SLIME 
+
+;(load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 ;; setup loadpath
 (add-to-list 'load-path "~/lisp/slime")
@@ -90,6 +109,8 @@
 ;; specify the lisp program you are using. Default is "lisp"
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
+; (setq slime-net-coding-system 'utf-8-unix)
+
 ;; set to load contrib packages
 ;(setq slime-contribs '(slime-scratch slime-editing-command))	; basic stuffs
 ;(setq slime-contribs '(slime-repl))	; repl only
@@ -97,3 +118,4 @@
 ;(add-to-list 'slime-contribs 'slime-fancy)
 (setq slime-contribs '(slime-fancy))	; almost everything (fancy)
 (slime-setup '(slime-fancy slime-asdf))
+
