@@ -113,9 +113,10 @@ alias ports='netstat -tulanp'           # list all tcp/udp ports
 alias wget='wget -c'                    # resume wget by default
 
 # dotfiles
-alias vimrc='vim ~/.vimrc'
+alias vimrc='vim ~/.vimrc'              # edit these as swift as possible
 alias bashrc='vim ~/.bashrc'
 alias emacsrc='vim ~/.emacs'
+alias hgrc='vim ~/.hgrc'
 
 # editing
 alias vi='vim -X'
