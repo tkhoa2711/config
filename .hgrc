@@ -1,0 +1,51 @@
+
+; frequently used commands
+;
+; view diff of a shelve
+;   hg shelve -l -p [name]
+;   cat .hg/shelved/[name].patch
+;
+; view the settings for a section, for e.g. ui, and the files that Mercurial reads in
+;   hg showconfig [section] --debug
+
+[alias]
+; edit the current repo's hgrc file
+editrc = !$EDITOR `$HG root`/.hg/hgrc
+
+[defaults]
+; rebase = --keepbranches
+; serve = --style=gitweb
+
+[diff]
+; git = True
+
+[extensions]
+convert =
+autosync =
+progress =
+graphlog =
+rebase =
+mq =
+fetch =
+mercurial_keyring =
+highlight =
+color =
+histedit =
+extdiff =
+notify =
+hgsubversion =
+shelve =
+transplant =
+purge =
+; prompt = ~/.mercurial/extensions/hg-prompt/prompt.py
+
+[defaults]
+fetch = -m"MERGE Automated merge with latest chages"
+
+[ui]
+username = $USER
+
+[pager]
+attend =
+pager = less -FSRX
+quiet = True
