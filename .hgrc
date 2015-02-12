@@ -7,6 +7,16 @@
 ;
 ; view the settings for a section, for e.g. ui, and the files that Mercurial reads in
 ;   hg showconfig [section] --debug
+;
+; show diff of a changeset [for specific files]
+;   hg log -vpr REV [filenames]
+;   hg export REV
+;
+; show files changed in a changeset
+;   hg status -n --change REV
+;   hg log -vr REV
+;
+; ----------------------------------------------------------------------------
 
 [alias]
 ; edit the current repo's hgrc file
