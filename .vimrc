@@ -55,8 +55,11 @@
 "___________________ MISC
 "
 " :w !diff % -      : show diff of last saved version with current unsaved version
+" :colorscheme      : show current colorscheme
 "
 "___________________ vim-trailing-whitespace
+"
+" :FixWhitespace    : fix trailing white space error
 "
 "___________________ NERDTree
 "
@@ -278,6 +281,49 @@ map :Q :q
 " use w!! to edit a file that need root privileges after already opened it
 cmap w!! w !sudo tee % >/dev/null
 
+" statusline
+set laststatus=2                " enable statusline
+
+set statusline=                 " clear the statusline when vimrc is reloaded
+set statusline+=%f              " file path
+set statusline+=%m%r%h%w        " modified/readonly/help/? flag
+set statusline+=\ %y\           " filetype
+set statusline+=enc:%{&enc}     " encoding
+set statusline+=%=              " split point for left/right justification
+set statusline+=line:\ %4.l     " current line number, width is at least 4 chars
+set statusline+=/%L             " total number of lines in buffer
+set statusline+=\
+set statusline+=col:%2c         " current column number
+set statusline+=\
+set statusline+=ch:%3.b         " current character
+
+" highlight color for statusline
+hi StatusLine term=reverse ctermfg=236 ctermbg=158
+if version >= 700
+    au InsertEnter * hi StatusLine term=reverse ctermfg=236 ctermbg=209
+    au InsertLeave * hi StatusLine term=reverse ctermfg=236 ctermbg=158
+endif
+
+if has("autocmd")
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+    au!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+
+    augroup END
+else
+    set autoindent
+endif " has("autocmd")
+
 
 " -------------------------------------------------------------------------
 " PLUG-IN
@@ -285,6 +331,9 @@ cmap w!! w !sudo tee % >/dev/null
 
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeWinSize     = 50
+let NERDTreeQuitOnOpen  = 1     " close the tree window after opening a file
+let NERDTreeDirArrows   = 0     " use +/~ chars when displaying directories instead of arrows
 
 " CtrlP
 let g:ctrlp_follow_symlinks = 1
