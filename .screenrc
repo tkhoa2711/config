@@ -1,0 +1,19 @@
+
+caption always "%{=b dw}:%{-b dw}:%{=b dk}[ %{-b dw}%{-b dg}$USER%{-b dw}@%{-b dg}%H %{=b dk}] [ %= %?%{-b dg}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{
+
+backtick 2 5 5 $HOME/scripts/meminfo
+hardstatus alwayslastline "%{+b dw}:%{-b dw}:%{+b dk}[%{-b dg} %0C:%s%a %{=b dk}]-[   %{-b dw}Load%{+b dk}:%{-b dg}%l %{+b dk}] [%{-b dg}%2`%{+b dk}] %=[ %{-
+
+sorendition "-b dw"
+
+# Enable 256-color mode when screen is started with TERM=xterm-256color
+#
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reasons
+attrcolor b ".I"
+
+# Tell screen how to set colors. AB = background, AF = foreground
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+#termcapinfo xterm* ti@:te@
+#termcapinfo xterm|xterms|xs ti@:te=\E[2J
