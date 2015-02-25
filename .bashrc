@@ -129,8 +129,10 @@ alias diff='git diff --no-index'        # in case colordiff is not available
 alias c='clear'                         # equivalent to Ctrl-L
 alias bc='bc -l'                        # start calculator with math support
 alias path='echo -e ${PATH//:/\\n}'     # show $PATH in a nice way
-alias grep='grep --color'
-alias egrep='egrep --color'
+alias gerp='grep'                       # common typo
+alias grep='grep -n --color'
+alias egrep='egrep -n --color'
+alias fgrep='find . | egrep -n --color'
 alias h='history'
 alias mnt='mount | column -t'           # show results of 'mount' in a nice format
 
