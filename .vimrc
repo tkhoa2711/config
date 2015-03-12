@@ -17,6 +17,8 @@
 " .,9[g|v]/foo/d    : delete any lines [containing|not containing] 'foo' from
 "                     the current line through the next 9 lines
 " %g/foo/m$         : move all lines containing 'foo' to the end of file
+" g[d|D]            : jump to the local/global declaration of a variable
+" cw                : delete current word
 "
 " ___________________ FORMAT
 "
@@ -26,6 +28,7 @@
 " retab             : change all existing tab characters to match current tab settings
 " gq                : format the current line
 " gqap              : format the current paragraph
+" %                 : jump to the matching open/close brace
 "
 " ___________________ MOVING SCREEN/CURSOR
 "
@@ -56,6 +59,7 @@
 "
 " :w !diff % -      : show diff of last saved version with current unsaved version
 " :colorscheme      : show current colorscheme
+" make              : built-in make
 "
 "___________________ vim-trailing-whitespace
 "
