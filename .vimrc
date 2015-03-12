@@ -327,6 +327,9 @@ if has("autocmd")
       \   exe "normal! g`\"" |
       \ endif
 
+    " source the vimrc file after saving it
+    autocmd BufWritePost .vimrc source $MYVIMRC
+
     augroup END
 else
     set autoindent
