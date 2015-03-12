@@ -42,6 +42,12 @@
 " Ctrl-[Y|E]        : move the screen up/down by 1 row
 " z[h|l]            : move the screen to left/right
 "
+" ___________________ WINDOW/TAB
+"
+" edit              : open new file in the current tab/window
+" tabedit           : open new file in a new tab
+" split|vsplit      : open new file in a horizontal/vertical split
+"
 " ___________________ MARK/REGISTER
 "
 " m[a-z]            : set [a-z] mark at current location
@@ -187,7 +193,12 @@ set nowrap                      " no text wrapping
 " toggle line number display
 map <F6> :set invnumber<CR>
 
-" create a new tab
+
+" -------------------------------------------------------------------------
+" WINDOWS
+" =========================================================================
+
+" create a new tab with Ctrl-T
 noremap <C-t> <Esc>:tabnew<CR>
 
 " turns a split window into it's own tab
