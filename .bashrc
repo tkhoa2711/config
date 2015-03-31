@@ -140,7 +140,7 @@ alias path='echo -e ${PATH//:/\\n}'     # show $PATH in a nice way
 alias gerp='grep'                       # common typo
 alias grep='grep -n --color'
 alias egrep='egrep -n --color'
-alias fgrep='find . | egrep -n --color'
+alias fg='find . | egrep -n --color'
 alias h='history'
 alias mnt='mount | column -t'           # show results of 'mount' in a nice format
 
