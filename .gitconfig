@@ -1,0 +1,20 @@
+[user]
+    name = Le Tan Khoa
+    email = tkhoa2711@yahoo.com.vn
+
+[push]
+    default = simple
+
+[color]
+    diff = auto
+    branch = auto
+    status = auto
+
+[alias]
+    cm = commit
+    co = checkout
+    st = status
+    d = diff --color-words
+    dw = diff --word-diff
+    l = log
+    b = branch
