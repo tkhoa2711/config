@@ -1,0 +1,10 @@
+# search through command history using up/down arrows
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# during word completion, those have more than one possible matches
+# will be listed immediately instead of ringing the bell
+set show-all-if-ambiguous on
+
+# perform file name matching and completion case-insensitively
+set completion-ignore-case on
