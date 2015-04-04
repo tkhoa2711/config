@@ -18,3 +18,5 @@
     dw = diff --word-diff
     l = log
     b = branch
+    last = log -1 HEAD
+
