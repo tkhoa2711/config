@@ -1,3 +1,5 @@
+" ~/.vimrc
+
 " -------------------------------------------------------------------------
 " TIPS
 " =========================================================================
@@ -28,7 +30,6 @@
 " retab             : change all existing tab characters to match current tab settings
 " gq                : format the current line
 " gqap              : format the current paragraph
-" %                 : jump to the matching open/close brace
 "
 " ___________________ MOVING SCREEN/CURSOR
 "
@@ -41,12 +42,14 @@
 " [H|M|L]           : move to top/middle/bottom of screen
 " Ctrl-[Y|E]        : move the screen up/down by 1 row
 " z[h|l]            : move the screen to left/right
+" %                 : jump to the matching open/close brace
 "
 " ___________________ WINDOW/TAB
 "
 " edit              : open new file in the current tab/window
 " tabedit           : open new file in a new tab
 " split|vsplit      : open new file in a horizontal/vertical split
+" g[t|T]            : move to next/previous tab
 "
 " ___________________ MARK/REGISTER
 "
@@ -66,6 +69,7 @@
 " :w !diff % -      : show diff of last saved version with current unsaved version
 " :colorscheme      : show current colorscheme
 " make              : built-in make
+" X                 : encrypt current buffer with prompted password
 "
 "___________________ vim-trailing-whitespace
 "
@@ -110,6 +114,9 @@
 " <F5>  purge CtrlP cache
 " <F6>  toggle line number display
 " <F7>  :TagbarToggle<CR>
+"
+" ________________________________________________________________________
+
 
 " -------------------------------------------------------------------------
 " SETTINGS
@@ -131,6 +138,7 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 "call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles()
 
+
 " -------------------------------------------------------------------------
 " HISTORY
 " =========================================================================
@@ -138,11 +146,25 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 set hidden                      " it hides buffers instead of closing them
                                 " you can have unwritten changes to a file
                                 " and be able to open new file with :e
-                                " undo buffers and marks are preserved while the buffer is opened
+                                " undo buffers and marks are preserved while
+                                " the buffer is opened
 set history=10000
-set undolevels=1000
+
+if has('persistent_undo')       " version >= 703
+    set undodir=~/.vim/undodir
+    if has('win32')
+        silent call system('mkdir ' . &undodir)
+    else
+        silent call system('mkdir -p ' . &undodir)
+    endif
+    set undofile
+    set undolevels=1000
+    set undoreload=10000        " maximum number lines to save for undo on a buffer reload
+endif
+
+set noswapfile
 set nobackup                    " never let vim write a backup file, they did that in the 70's
-"set noswapfile
+set backupdir=~/.vim/backup
 
 
 " -------------------------------------------------------------------------
@@ -186,7 +208,6 @@ set showcmd                     " display typed command in status bar
 set ruler                       " show cursor position in status bar
 set sm                          " show matching bracket
 set nowrap                      " no text wrapping
-"set laststatus=2                " use 2 lines for the status bar
 "set matchtime=2                 " show matching bracket for 0.2 seconds
 "set matchpairs+=<:>             " specially for html
 
@@ -301,7 +322,7 @@ map :Q :q
 cmap w!! w !sudo tee % >/dev/null
 
 " statusline
-set laststatus=2                " enable statusline
+set laststatus=2                " use 2 lines for the status bar
 
 set statusline=                 " clear the statusline when vimrc is reloaded
 set statusline+=%f              " file path
