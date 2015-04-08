@@ -151,7 +151,7 @@ set hidden                      " it hides buffers instead of closing them
 set history=10000
 
 if has('persistent_undo')       " version >= 703
-    set undodir=~/.vim/undodir
+    set undodir=~/.vim/undodir//
     if has('win32')
         silent call system('mkdir ' . &undodir)
     else
@@ -162,9 +162,11 @@ if has('persistent_undo')       " version >= 703
     set undoreload=10000        " maximum number lines to save for undo on a buffer reload
 endif
 
-set noswapfile
+"set noswapfile                 " enable noswapfile will allow editing file in multiple instances of vim
+                                " and if vim crashes, we won't have backup
 set nobackup                    " never let vim write a backup file, they did that in the 70's
-set backupdir=~/.vim/backup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
 
 
 " -------------------------------------------------------------------------
