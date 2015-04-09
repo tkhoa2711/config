@@ -269,6 +269,7 @@ nmap Q gqap
 " Scrolling with mouse
 " Note : it will affect copy/paste with mouse i.e. being changed to visual mode
 "set mouse=a " - to be enabled when needed
+map <MiddleMouse> <Nop>
 map <ScrollWheelUp> 3<C-Y>
 map <scrollWheelDown> 3<C-E>
 
