@@ -366,6 +366,12 @@ if has("autocmd")
     autocmd BufWritePost .vimrc source $MYVIMRC
 
     augroup END
+
+    " hightlight TODO and alike keywords
+    augroup HighlightTODO
+        autocmd!
+        autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO\|FIXME\|NOTE\|HACK\|XXX', -1)
+    augroup END
 else
     set autoindent
 endif " has("autocmd")
