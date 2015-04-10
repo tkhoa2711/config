@@ -114,7 +114,8 @@
 " <F5>  purge CtrlP cache
 " <F6>  toggle line number display
 " <F7>  :TagbarToggle<CR>
-"
+" <F8>
+" <F9>  :make
 " ________________________________________________________________________
 
 
@@ -150,13 +151,19 @@ set hidden                      " it hides buffers instead of closing them
                                 " the buffer is opened
 set history=10000
 
+" TODO organize functions into one place
+function! MkDir(dir)
+    let dir=a:dir
+    if has('win32')
+        silent call system('mkdir ' . dir)
+    else
+        silent call system('mkdir -p ' . dir)
+    endif
+endfunction
+
 if has('persistent_undo')       " version >= 703
     set undodir=~/.vim/undodir//
-    if has('win32')
-        silent call system('mkdir ' . &undodir)
-    else
-        silent call system('mkdir -p ' . &undodir)
-    endif
+    call MkDir(&undodir)
     set undofile
     set undolevels=1000
     set undoreload=10000        " maximum number lines to save for undo on a buffer reload
@@ -164,9 +171,11 @@ endif
 
 "set noswapfile                 " enable noswapfile will allow editing file in multiple instances of vim
                                 " and if vim crashes, we won't have backup
-set nobackup                    " never let vim write a backup file, they did that in the 70's
+set nobackup                    " never let vim write a backup file, they did that in the 70's. Well..
 set backupdir=~/.vim/backup//
+call MkDir(&backupdir)
 set directory=~/.vim/swp//
+call MkDir(&directory)
 
 
 " -------------------------------------------------------------------------
@@ -301,6 +310,27 @@ nnoremap k gk
 
 " Showing diff between last saved version and current unsaved version
 nmap <F4> :w !diff % - <CR>
+
+
+" -------------------------------------------------------------------------
+" TAGS
+" =========================================================================
+
+set tags+=$HOME/.ctags/build_tags
+set tags+=$HOME/.ctags/tags
+
+
+" -------------------------------------------------------------------------
+" COMPILATION
+" =========================================================================
+
+set makeprg=make\ UNDER_VIM=1\ -j5
+map <silent> <F9> :make<cr>
+
+" quickfix
+" navigate through the errors in quickfix window easily
+map <C-j> :cn<cr>
+map <C-k> :cp<cr>
 
 
 " -------------------------------------------------------------------------
