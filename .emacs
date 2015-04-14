@@ -27,6 +27,7 @@
 ; M-[del|d] : delete word backward/forward
 ; C-k : kill (delete) line from the current cursor
 ; C-a C-k : kill whole line
+; [C|M]-t : transpose two characters/words
 ;
 ;; FORMATTING
 ; M-u : uppercase word
