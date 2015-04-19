@@ -137,7 +137,8 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 " Use pathogen to easily modify the runtime path
 " and include all plugins under ~/.vim/bundle directory
 "call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles() ; looks like this is obsolete
+execute pathogen#infect()
 
 
 " -------------------------------------------------------------------------
@@ -147,8 +148,7 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 set hidden                      " it hides buffers instead of closing them
                                 " you can have unwritten changes to a file
                                 " and be able to open new file with :e
-                                " undo buffers and marks are preserved while
-                                " the buffer is opened
+                                " undo buffers and marks are preserved while the buffer is opened
 set history=10000
 
 " TODO organize functions into one place
@@ -307,7 +307,7 @@ nnoremap k gk
 " -------------------------------------------------------------------------
 " DIFF
 " =========================================================================
-
+"
 " Showing diff between last saved version and current unsaved version
 nmap <F4> :w !diff % - <CR>
 
@@ -315,19 +315,19 @@ nmap <F4> :w !diff % - <CR>
 " -------------------------------------------------------------------------
 " TAGS
 " =========================================================================
-
-set tags+=$HOME/.ctags/build_tags
-set tags+=$HOME/.ctags/tags
+"
+"set tags+=$HOME/.ctags/build_tags
+"set tags+=$HOME/.ctags/tags
 
 
 " -------------------------------------------------------------------------
 " COMPILATION
 " =========================================================================
-
+"
 set makeprg=make\ UNDER_VIM=1\ -j5
 map <silent> <F9> :make<cr>
 
-" quickfix
+" quickfix ----------------------------
 " navigate through the errors in quickfix window easily
 map <C-j> :cn<cr>
 map <C-k> :cp<cr>
@@ -354,7 +354,7 @@ map :Q :q
 " use w!! to edit a file that need root privileges after already opened it
 cmap w!! w !sudo tee % >/dev/null
 
-" statusline
+" statusline --------------------------
 set laststatus=2                " use 2 lines for the status bar
 
 set statusline=                 " clear the statusline when vimrc is reloaded
@@ -410,14 +410,14 @@ endif " has("autocmd")
 " -------------------------------------------------------------------------
 " PLUG-IN
 " =========================================================================
-
-" NERDTree
+"
+" NERDTree ----------------------------
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeWinSize     = 50
 let NERDTreeQuitOnOpen  = 1     " close the tree window after opening a file
 let NERDTreeDirArrows   = 0     " use +/~ chars when displaying directories instead of arrows
 
-" CtrlP
+" CtrlP -------------------------------
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_use_caching = 1
@@ -428,12 +428,13 @@ map <C-P><C-M><C-U> :CtrlPMRU<CR>
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 
-" CtrlP-filetype
+" CtrlP-filetype ----------------------
 let g:ctrlp_extensions = ['filetype']
 silent! nnoremap <unique> <silent> <Leader>f :CtrlPFiletype<CR>
 " --> this means \f = :CtrlPFiletype<CR>
 
-" TComment
+" TComment ----------------------------
+" TODO make this work in insert mode
 map <c-/> :TComment
 "this is similar to --> map <c-/><c-/> :TComment
 map // :TComment<CR>
@@ -441,10 +442,11 @@ map // :TComment<CR>
 map <c-/>b :TCommentBlock
 map <c-/>t :TCommentRight
 
-" Tagbar
+" Tagbar ------------------------------
 nmap <F7> :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_autofocus = 0
 let g:tagbar_show_visibility = 1
 let g:tagbar_autopreview = 0
 " autocmd VimEnter * nested :call tagbar#autoopen(1)
+
