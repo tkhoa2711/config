@@ -136,9 +136,9 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 "
 " Use pathogen to easily modify the runtime path
 " and include all plugins under ~/.vim/bundle directory
-"call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles() ; looks like this is obsolete
 execute pathogen#infect()
+call pathogen#helptags()        " generate helptags for everything in 'runtimepath'
 
 
 " -------------------------------------------------------------------------
@@ -258,6 +258,12 @@ set expandtab                   " turn a tab into spaces
 "set lazyredraw                 " no redraw in macros
 set shiftwidth=4                " nuber of spaces to use for auto-indenting when using << and >>
 set smarttab                    " insert tabs on the start of lines according to shiftwidth, not tabstop
+
+if has("autocmd")
+    " enable filetype-based indentation
+    " use indentation scripts locate in the 'indent' directory
+    filetype plugin indent on
+endif
 
 
 " -------------------------------------------------------------------------
