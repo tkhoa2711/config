@@ -4,7 +4,7 @@
 " TIPS
 " =========================================================================
 "
-" __________________ SEARCH/REPLACE/DELETE
+" ___________________ SEARCH/REPLACE/DELETE
 "
 " Ctrl-n Ctrl-p     : complete word (insert mode)
 " .                 : the last inserted text
@@ -64,25 +64,25 @@
 "                     containing string 'foo' to register 'a'
 " "aP               : paste a copy from 'a' register before the current line
 "
-"___________________ MISC
+"____________________ MISC
 "
 " :w !diff % -      : show diff of last saved version with current unsaved version
 " :colorscheme      : show current colorscheme
 " make              : built-in make
 " X                 : encrypt current buffer with prompted password
 "
-"___________________ vim-trailing-whitespace
+"____________________ vim-trailing-whitespace
 "
 " :FixWhitespace    : fix trailing white space error
 "
-"___________________ NERDTree
+"____________________ NERDTree
 "
 " gt|gT             : navigate forward|backward between tabs
 " Ctrl-ww           : switch between windows
 " s                 : open in vertical split window
 " t|T               : open in new[silent] tab
 "
-"___________________ CtrlP
+"____________________ CtrlP
 "
 " Ctrl-d            : switch to search by filename only instead of full path
 " <F5>              : purge the cache
@@ -92,12 +92,12 @@
 " Ctrl-t|v|x        : open selected entry in new tab|split
 " Ctrl-w            : switch between windows
 "
-"___________________ Lawrencium
+"____________________ Lawrencium
 "
 " :Hgvdiff          : diff in vertical split windows
 " :Hgstatus
 "
-"___________________ Tagbar
+"____________________ Tagbar
 "
 " p                 : jump to the tag under cursor, stay in Tagbar window
 " P                 : open the tag in a preview window
