@@ -70,6 +70,8 @@
 " :colorscheme      : show current colorscheme
 " make              : built-in make
 " X                 : encrypt current buffer with prompted password
+" u                 : undo
+" Ctrl-R            : redo
 "
 "____________________ vim-trailing-whitespace
 "
@@ -112,7 +114,7 @@
 " <F3>  :pastetoggle
 " <F4>  :w !diff % -
 " <F5>  purge CtrlP cache
-" <F6>  toggle line number display
+" <F6>
 " <F7>  :TagbarToggle<CR>
 " <F8>
 " <F9>  :make
@@ -129,6 +131,7 @@ endif
 set ttyfast
 set confirm                     " get a dialog when :q, :w or :wq fails
 
+let mapleader = "\<Space>"      " Power!!!
 
 " -------------------------------------------------------------------------
 " PLUG-IN
@@ -177,6 +180,9 @@ call MkDir(&backupdir)
 set directory=~/.vim/swp//
 call MkDir(&directory)
 
+" autosave on losing focus
+" :au FocusLost * silent! wa
+
 
 " -------------------------------------------------------------------------
 " SYNTAX HIGHLIGHTING
@@ -184,7 +190,7 @@ call MkDir(&directory)
 
 syntax on
 set t_Co=256
-"colorscheme 256-grayvim
+colorscheme 256-grayvim
 "colorscheme monokai
 "colorscheme torte
 
@@ -196,6 +202,7 @@ autocmd filetype html,xml set listchars-=tab:>.     " not showing tabs for these
 
 " force syntax highlighting for these files
 au BufRead,BufNewFile .bash_* set filetype=sh
+au BufRead,BufNewFile *.asd set filetype=lisp
 
 
 " -------------------------------------------------------------------------
@@ -222,9 +229,6 @@ set nowrap                      " no text wrapping
 "set matchtime=2                 " show matching bracket for 0.2 seconds
 "set matchpairs+=<:>             " specially for html
 
-" toggle line number display
-map <F6> :set invnumber<CR>
-
 
 " -------------------------------------------------------------------------
 " WINDOWS
@@ -243,6 +247,9 @@ noremap <C-t> <Esc>:tabnew<CR>
 
 " close tab - conflict with C-ww
 " map <C-W> :q<CR>
+
+" faster way to open a vertical buffer and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
 
 
 " -------------------------------------------------------------------------
