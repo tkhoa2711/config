@@ -7,7 +7,6 @@
 " ___________________ SEARCH/REPLACE/DELETE
 "
 " Ctrl-n Ctrl-p     : complete word (insert mode)
-" .                 : the last inserted text
 " *                 : search current word under cursor and move to next matched
 " * ` `             : search and return to current word
 " #                 : previous word under cursor
@@ -38,17 +37,26 @@
 " [n]w|b            : move to beginning of [n] next/previous word(s)
 " 0                 : move to beginning of line
 " $                 : move to end of line
+" ^                 : first non-blank character of line
 " [gg|G]            : move to first/last line
 " [H|M|L]           : move to top/middle/bottom of screen
 " Ctrl-[Y|E]        : move the screen up/down by 1 row
 " z[h|l]            : move the screen to left/right
 " %                 : jump to the matching open/close brace
 "
+" ___________________ INSERTING/APPENDING TEXT - INSERT MODE
+"
+" I                 : enter insert mode at beginning of the line
+" a                 : append after the cursor
+" A                 : append at the end of the line
+" ea                : append at end of word
+" [o|O]             : open new line below/above the current line and enter insert mode
+"
 " ___________________ WINDOW/TAB
 "
 " edit              : open new file in the current tab/window
 " tabedit           : open new file in a new tab
-" split|vsplit      : open new file in a horizontal/vertical split
+" :[sp|vs]          : open new file in a horizontal/vertical split
 " g[t|T]            : move to next/previous tab
 "
 " ___________________ MARK/REGISTER
@@ -72,6 +80,8 @@
 " X                 : encrypt current buffer with prompted password
 " u                 : undo
 " Ctrl-R            : redo
+" .                 : repeat last change
+" J                 : join current line with the line below
 "
 "____________________ vim-trailing-whitespace
 "
