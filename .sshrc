@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# ----------------------------------------------------------------------------
+# CHEAT SHEET
+# ============================================================================
+#
+# _______________________________ RSA
+#
+# ssh-keyscan -t rsa ip         : get the RSA of a host
+# ssh-keyren -R *ip_or_name*    : remove all keys belong to a host
+# ssh -o \
+# StrictHostKeyChecking=no      : loosen strict host key checking
+#
+# ____________________________________________________________________________
