@@ -26,3 +26,14 @@ export CLICOLOR=1
 #export LSCOLORS=ExFxCxDxBxegedabagacad
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx     # for black background
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd      # emulate default coloring on linux 'ls'
+
+##
+# Your previous /Users/tkhoa2711/.profile file was backed up as /Users/tkhoa2711/.profile.macports-saved_2015-01-15_at_00:27:53
+##
+
+# MacPorts Installer addition on 2015-01-15_at_00:27:53: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# OPAM configuration
+. /Users/tkhoa2711/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
