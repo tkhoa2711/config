@@ -1,5 +1,33 @@
 # ~/.bashrc
 
+# -------------------------------------------------------------------------
+# TIPS
+# =========================================================================
+#
+# __________________ NAVIGATION
+#
+# C-[a|e]           : move to the start/end of line
+# C-[b|f]           : move backward/forward one character
+# M-[b|f]           : move backward/forward one word
+#
+# __________________ EDIT
+#
+# C-l               : clear screen
+# [C|M]-w           : cut from cursor to start/end of word
+# C-[u|k]           : cut from cursor to start/end of line
+# [C|M]-t           : cut from cursor to end of line
+# M-y               : iterate through paste result from C-y
+# [C|M]-t           : swap the last two characters/words before the cursor
+#
+# __________________ HISTORY
+#
+# C-r               : search as you type
+# C-r*              : iterate through the search result
+# C-j               : end the search at current history entry
+# C-g               : cancel the search and restore original line
+# Esc-.             : repeat the previous command's last argument
+
+
 # -----------------------------------------------------------------------
 # choose which branch version to work on
 # -----------------------------------------------------------------------
@@ -43,15 +71,16 @@ case "$OSTYPE" in
         ;;
     
     darwin*)    # Mac OS X
-        # aliase
+        # alias
         alias duhere='\du -h -d 1'
 
         # PATH
         export PATH="/usr/local/git/bin:$PATH"  # use the latest git version
         
         # my own config on Mac OS
-        alias devdir='cd ~/source/dev/'
+        alias devdir='cd ~/source/dev'
         alias sourcedir='cd ~/source'
+        alias trashdir='cd ~/.Trash'
         ;;
     
     cygwin)     # Cygwin on Windows
@@ -132,6 +161,7 @@ alias vim='vim -X'
 #alias diff=colordiff
 alias diff='git diff --no-index'        # in case colordiff is not available
 #alias diff='vim -d'                    # enable if you prefer using vim diff
+alias emacs='TERM=xterm-256color emacs -nw' # allow emacs to remain beautiful as usual in tmux
 
 # misc
 alias c='clear'                         # equivalent to Ctrl-L
@@ -143,6 +173,7 @@ alias egrep='egrep -n --color'
 alias fg='find . | egrep -n --color'
 alias h='history'
 alias mnt='mount | column -t'           # show results of 'mount' in a nice format
+alias tu='vim Tupfile'
 
 # -----------------------------------------------------------------------
 # editing
@@ -150,10 +181,10 @@ alias mnt='mount | column -t'           # show results of 'mount' in a nice form
 export EDITOR=vim
 
 # helper function to edit dotfiles easily
-dot()
-{
-    $EDITOR ~/.$1
-}
+#dot()
+#{
+#    $EDITOR ~/.$1
+#}
 
 # -----------------------------------------------------------------------
 # history settings
@@ -178,6 +209,14 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 export PATH=~/source/py-env0/bin:$PATH
 export WORKON_HOME="$HOME/.virtualenvs"
 source virtualenvwrapper.sh
+
+# default python working environment
+# workon default
+
+# -----------------------------------------------------------------------
+# GTest
+# -----------------------------------------------------------------------
+export GTEST_DIR=~/source/gtest
 
 # -----------------------------------------------------------------------
 # command prompt
