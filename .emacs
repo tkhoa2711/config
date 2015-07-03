@@ -39,6 +39,7 @@
 ; C-[f|b] : move forward/backward one character
 ; M-[f|b] : move forward/backward one word
 ; C-[s|r] : search forward/backward
+; C-s c-s : continue search forward
 ; C-g : return to where search started (only if still in search mode)
 ;
 ;; ===========
@@ -57,6 +58,7 @@
 ; C-c C-d h : open symbol definition (when on symbol) from CL hyperspec in browser
 ;
 ;; COMPILATION, MESSAGES
+; C-c C-c : interrupt the current evaluating form
 ; C-c C-c : compile current form (funtion)
 ; C-c C-k : compile current buffer source file and load it
 ; C-c M-k : compile current buffer but don't load it
@@ -87,12 +89,12 @@
 
 ;; hot key for switching between windows
 ;; C-x o is probably the worst default emacs setup :|
-(global-set-key (kbd "C-." ) 'other-window)
-(global-set-key (kbd "C-," ) 'prev-window)
-
 (defun prev-window ()
     (interactive)
     (other-window -1))
+
+(global-set-key (kbd "C-." ) 'other-window)
+(global-set-key (kbd "C-," ) 'prev-window)
 
 ;; ============
 ;; == BACKUP ==
@@ -115,7 +117,51 @@
 
 ;; tell emacs to refresh all the buffers from disk automatically
 ;; if the buffer is modified, it won't be reverted
-;(global-auto-revert-mode t)
+(global-auto-revert-mode t)
+
+(defun byte-compile-current-buffer ()
+  "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."
+  (interactive)
+  (when (and (eq major-mode 'emacs-lisp-mode)
+             (file-exists-p (byte-compile-dest-file buffer-file-name)))
+    (byte-compile-file buffer-file-name)))
+
+(add-hook 'after-save-hook 'byte-compile-current-buffer)
+
+;; rename current file
+(defun rename-current-buffer-file ()
+  "Rename current buffer/file."
+  (interactive)
+  (let ((name (buffer-name))
+    (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+    (error "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+    (if (get-buffer new-name)
+        (error "A buffer with name '%s' already exists!" new-name)
+      (rename-file filename new-name 1)
+      (rename-buffer new-name)
+      (set-visited-file-name new-name)
+      (set-buffer-modified-p nil)
+      (message "File '%s' successfully renamede to '%s'" name
+           (file-name-nondirectory new-name)))))))
+
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+; (defun save-core (core-fn)
+;   "Save the lisp core in a cool way"
+;   (progn
+;     #+sbcl
+;     (let ((fork-result (sb-posix:fork)))
+;       (case for-result
+;         (-1 (error "fork failed!"))
+;         (0 (sb-ext:save-lisp-and-die core-fn :toplevel #'main :executable t))
+;         (otherwise (sb-ext:wait)))
+;       (format t "standalone core ~a saved." core-fn))
+;     #-sbcl
+;     (error "not supported on this lisp implementation")
+;     (values)))
+
 
 ;; ===========================================================================
 ;; setup MELPA repository
@@ -125,6 +171,7 @@
 (when (< emacs-major-version 24)
   ;; for important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
 (package-initialize)
 
 ;; ===========================================================================
@@ -136,8 +183,9 @@
 ;(color-theme-vim-colors)
 
 ;; sublime-themes
-;(require 'emacs-color-themes)
-;(load-theme 'mccarthy t)
+; (require 'emacs-color-themes)
+; (load-theme 'mccarthy t)
+(load-theme 'zenburn t)
 
 ;; ===========================================================================
 ;; org-mode
@@ -160,6 +208,17 @@
 ;; specify the lisp program you are using. Default is "lisp"
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
+;; custom core file to improve loading SLIME speed
+;; preload packages for sockets, posix, introspect, asdf
+
+;; those that take the most time to load.
+;;
+;; create the core by executing the following:
+;; * (mapc 'require '(sb-bsd-sockets sb-posix sb-introspect sb-cltl2 asdf))
+;; * (save-lisp-and-die "sbcl.core-for-slime")
+; (setq slime-lisp-implementations
+;       '((sbcl ("sbcl" "--core" "sbcl.core-for-slime"))))
+
 ; (setq slime-net-coding-system 'utf-8-unix)
 
 ;; set to load contrib packages
@@ -170,18 +229,52 @@
 (setq slime-contribs '(slime-fancy))                            ; almost everything (fancy)
 (slime-setup '(slime-fancy slime-asdf))
 
-;; Loading nasm mode
+;(setf asdf:*central-registry*
+      ;; default directories, usually just the ``current directory''
+;      '(*default-pathname-defaults*
+
+	;; additional places where ASDF can search
+;	#p"~/source/dev/lisp/"))
+;(require :asdf)
+;(pushnew "~/source/dev/lisp/" asdf:*central-registry* :test #'equal)
+
+;; ===========================================================================
+;; major modes
+
+;; nasm-mode --------------------------
 (load "~/.emacs.d/lisp/nasm.el")
 (require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
+
+;; newlisp-mode -----------------------
+(add-to-list 'load-path "~/.emacs.d/elpa/newlisp-mode-20150120.1040")
+(require 'newlisp-mode)
+
+; make emacs's "speedbar" recognize newlisp files
+(eval-after-load "speedbar" '(speedbar-add-supported-extension ".lsp"))
+
+; another way to use C-x C-e to eval stuffs without jumping to the next function
+(define-key newlisp-mode-map [(control x) (control e)] 'newlisp-evaluate-prev-sexp)
+
+; if you're too lazy to load the newlisp interpreter all the time
+(defun start-newlisp ()
+  "Starts newlisp interpreter or show it if already running.
+  Requires newlisp-mode to be loaded."
+  (interactive)
+  (newlisp-show-repl))
+
+;; ===========================================================================
+;; miscellaneous
+
+;; define-word -------------------------
+(add-to-list 'load-path "~/.emacs.d/lisp/define-word")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (solarized-light)))
- '(custom-safe-themes (quote ("3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default))))
+ '(custom-safe-themes (quote ("da7fa7211dd96fcf77398451e3f43052558f01b20eb8bee9ac0fd88627e11e22" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
