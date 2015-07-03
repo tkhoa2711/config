@@ -11,6 +11,7 @@
     status = auto
 
 [alias]
+    ci = commit
     cm = commit
     co = checkout
     st = status
