@@ -250,6 +250,9 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/newlisp-mode-20150120.1040")
 (require 'newlisp-mode)
 
+;; company-mode -----------------------
+(add-hook 'after-init-hook 'global-company-mode)
+
 ; make emacs's "speedbar" recognize newlisp files
 (eval-after-load "speedbar" '(speedbar-add-supported-extension ".lsp"))
 
