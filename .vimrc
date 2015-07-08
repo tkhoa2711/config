@@ -226,6 +226,10 @@ nmap <silent> ,/ :nohlsearch<CR>
 set ignorecase                  " case-insensitive searching
 set smartcase                   " ignore case in searching unless an upppercase letter is used
 
+" center the cursor after jumping to the next/previous match
+nnoremap n nzz
+nnoremap N Nzz
+
 
 " -------------------------------------------------------------------------
 " DISPLAYING
