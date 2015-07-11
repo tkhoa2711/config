@@ -8,3 +8,12 @@
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
+(require 'asdf)
+(setf asdf:*central-registry*
+      ;; directories, usually just the ``current directory''
+      '(*default-pathname-defaults*
+	#p"~/source/dev/lisp/"))
+
+;(pushnew "~/source/dev/lisp/" asdf:*central-registry* :test #'equal)
+
+(require 'swank)
