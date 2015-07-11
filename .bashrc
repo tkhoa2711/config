@@ -113,6 +113,7 @@ alias l.='ls -adlrt .* -color'
 alias lu='ls -alrt -F -color | grep $USER'
 alias lal='ls -altr -color'
 alias lcl='while true; do c; ll; sleep 2; done'
+alias j='autojump'
 
 #alias mv='mv-i'
 #alias rm='rm -i'
