@@ -246,12 +246,13 @@
 
 ;; nasm-mode --------------------------
 (load "~/.emacs.d/lisp/nasm.el")
-(require 'nasm-mode)
+(autoload 'nasm-mode "nasm-mode" "Major mode for nasm" t)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
 ;; newlisp-mode -----------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/newlisp-mode-20150120.1040")
-(require 'newlisp-mode)
+(autoload 'newlisp-mode "newlisp-mode" "Major mode for newlisp files" t)
+(setq auto-mode-alist (cons '("\\.lsp$" . newlisp-mode) auto-mode-alist))
 
 ;; company-mode -----------------------
 (add-hook 'after-init-hook 'global-company-mode)
