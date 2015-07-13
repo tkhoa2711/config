@@ -42,9 +42,12 @@
 ; C-s c-s : continue search forward
 ; C-g : return to where search started (only if still in search mode)
 ;
-;; ===========
+;; MENU
+; <F10> : display menu on terminal
+;
+;; ==================
 ;; == COLOR SCHEME ==
-;; ===========
+;; ==================
 ; M-x color-schem-select : select a color schema via a GUI menu
 ; M-x customize-themes : customize with multiple themes
 ;
