@@ -163,6 +163,7 @@ alias vim='vim -X'
 alias diff='git diff --no-index'        # in case colordiff is not available
 #alias diff='vim -d'                    # enable if you prefer using vim diff
 alias emacs='TERM=xterm-256color emacs -nw' # allow emacs to remain beautiful as usual in tmux
+alias e='TERM=xterm-256color emacsclient'
 
 # misc
 alias c='clear'                         # equivalent to Ctrl-L

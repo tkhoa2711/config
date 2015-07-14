@@ -261,7 +261,7 @@
 (eval-after-load "speedbar" '(speedbar-add-supported-extension ".lsp"))
 
 ; another way to use C-x C-e to eval stuffs without jumping to the next function
-(define-key newlisp-mode-map [(control x) (control e)] 'newlisp-evaluate-prev-sexp)
+; (define-key newlisp-mode-map [(control x) (control e)] 'newlisp-evaluate-prev-sexp)
 
 ; if you're too lazy to load the newlisp interpreter all the time
 (defun start-newlisp ()
@@ -272,6 +272,9 @@
 
 ;; ===========================================================================
 ;; miscellaneous
+
+;; emacs server
+(server-start)
 
 ;; define-word -------------------------
 (add-to-list 'load-path "~/.emacs.d/lisp/define-word")
