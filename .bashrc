@@ -120,7 +120,7 @@ alias j='autojump'
 #alias mkdir='mkdir -pv'
 
 # processes, jobs
-alias j='jobs -l'
+alias jo='jobs -l'
 alias p='ps -aef | grep $USER'
 alias psm='ps -u ${USER} -f --sort comm'
 alias pst='ps -eLf'                     # display threads also
