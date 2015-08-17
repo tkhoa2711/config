@@ -82,6 +82,9 @@ case "$OSTYPE" in
         alias sourcedir='cd ~/source'
         alias trashdir='cd ~/.Trash'
         ;;
+
+        # autojump
+        # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
     
     cygwin)     # Cygwin on Windows
         ;;
@@ -120,7 +123,7 @@ alias j='autojump'
 #alias mkdir='mkdir -pv'
 
 # processes, jobs
-alias jo='jobs -l'
+# alias jo='jobs -l'
 alias p='ps -aef | grep $USER'
 alias psm='ps -u ${USER} -f --sort comm'
 alias pst='ps -eLf'                     # display threads also
@@ -202,6 +205,8 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # -----------------------------------------------------------------------
 # PATH settings
 # -----------------------------------------------------------------------
+export EMACS_D=~/.emacs.d
+
 
 # -----------------------------------------------------------------------
 # python
