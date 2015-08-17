@@ -71,6 +71,16 @@
 ; , : enter command
 ;
 
+
+;; INIT
+(require 'cl)
+
+(defvar emacs-root "~/.emacs.d/"
+  "The root of my emacs evolution.")
+
+(load "~/.emacs.d/init.el")
+
+
 ;; ===========================================================================
 
 (set-language-environment "utf-8")
@@ -165,6 +175,10 @@
 ;     (error "not supported on this lisp implementation")
 ;     (values)))
 
+;; use ibuffer to list buffers
+(defalias 'list-buffers 'ibuffer)
+
+
 
 ;; ===========================================================================
 ;; setup MELPA repository
@@ -245,7 +259,7 @@
 ;; major modes
 
 ;; nasm-mode --------------------------
-(load "~/.emacs.d/lisp/nasm.el")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (autoload 'nasm-mode "nasm-mode" "Major mode for nasm" t)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
@@ -269,6 +283,19 @@
   Requires newlisp-mode to be loaded."
   (interactive)
   (newlisp-show-repl))
+
+;; ===========================================================================
+;; other modes
+
+;; ido-mode --------------------------
+;; use ido-mode for switching buffers
+(ido-mode 1)
+
+; display choices vertically
+(setq ido-separator "\n")
+
+(setq ido-enable-flex-matching t)
+
 
 ;; ===========================================================================
 ;; miscellaneous
