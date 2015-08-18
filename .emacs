@@ -132,6 +132,19 @@
 ;; if the buffer is modified, it won't be reverted
 (global-auto-revert-mode t)
 
+(defun smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+  Move point to the first non-whitespace character on this line.
+  If point was already at that position, move point to beginning of line."
+  (interactive)			        ; use (interactive "^") in Emacs 23 to make shift-select work
+  (let ((oldpos (point)))
+    (back-to-indentation) 		; go to first non-whitespace character
+    (and (= oldpos (point))
+         (beginning-of-line))))
+
+(global-set-key [home] 'smart-beginning-of-line)
+(global-set-key "\C-a" 'smart-beginning-of-line)
+
 (defun byte-compile-current-buffer ()
   "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."
   (interactive)
