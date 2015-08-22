@@ -12,5 +12,6 @@
         )
 
 (require 'init-keybinding)
+(require 'init-mode)
 
 ;;; init.el ends here
