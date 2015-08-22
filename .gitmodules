@@ -1,0 +1,3 @@
+[submodule ".emacs.d/elisp/notify.el"]
+	path = .emacs.d/elisp/notify.el
+	url = https://github.com/tkhoa2711/notify.el.git
