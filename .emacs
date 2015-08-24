@@ -114,9 +114,11 @@
 ;; ============
 ;; put all backup files in one nice place if possible
 ;; uncomment these if you wish to keep all in one place
-(if (file-directory-p "~/.backup")
-    (setq backup-directory-alist '(("." . "~/.backup")))
-  (message "Directory does not exist: ~/.backup"))
+(let ((backup-dir (concat emacs-root ".backup")))
+  (unless (file-directory-p backup-dir)
+    (message "Directory does not exist: %s. Creating it." backup-dir)
+    (mkdir backup-dir))
+  (setq backup-directory-alist '(("." . "~/.backup"))))
 
 (setq backup-by-copying t    ; don't delink hardlinks
       delete-old-versions t  ; clean up the backups
