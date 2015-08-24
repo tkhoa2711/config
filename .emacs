@@ -114,7 +114,7 @@
 ;; ============
 ;; put all backup files in one nice place if possible
 ;; uncomment these if you wish to keep all in one place
-(let ((backup-dir (concat emacs-root ".backup")))
+(let ((backup-dir (concat (file-name-as-directory emacs-root) ".backup")))
   (unless (file-directory-p backup-dir)
     (message "Directory does not exist: %s. Creating it." backup-dir)
     (mkdir backup-dir))
