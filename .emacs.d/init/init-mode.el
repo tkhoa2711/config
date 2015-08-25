@@ -10,17 +10,15 @@
 (setq org-log-done t)
 
 ;; nasm-mode --------------------------
-(add-to-list 'load-path "~/.emacs.d/lisp")
 (autoload 'nasm-mode "nasm-mode" "Major mode for nasm" t)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
-;; newlisp-mode -----------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/newlisp-mode-20150120.1040")
-(autoload 'newlisp-mode "newlisp-mode" "Major mode for newlisp files" t)
-(setq auto-mode-alist (cons '("\\.lsp$" . newlisp-mode) auto-mode-alist))
-
 ;; company-mode -----------------------
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; newlisp-mode -----------------------
+(autoload 'newlisp-mode "newlisp-mode" "Major mode for newlisp files" t)
+(add-to-list 'auto-mode-alist '("\\.lsp$" . newlisp-mode))
 
 ; make emacs's "speedbar" recognize newlisp files
 (eval-after-load "speedbar" '(speedbar-add-supported-extension ".lsp"))
@@ -35,6 +33,9 @@
   (interactive)
   (newlisp-show-repl))
 
+;; markdown-mode ----------------------
+(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.\\(md\\|markdown\\)$" . markdown-mode))
 
 ;; ============================================================================
 ;; other modes

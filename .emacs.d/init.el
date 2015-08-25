@@ -9,6 +9,7 @@
                        (concat (file-name-as-directory emacs-root) p))))
   (add-path "init")  ; init files go here
   (add-path "elisp") ; my personal elisp code
+  (add-path "lisp")  ; my persoanl lisp code
   )
 
 (require 'init-keybinding)
