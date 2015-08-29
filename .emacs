@@ -147,6 +147,7 @@
 ;; use ibuffer to list buffers
 (defalias 'list-buffers 'ibuffer)
 
+(setq vc-follow-symlinks t)
 
 
 ;; ===========================================================================
