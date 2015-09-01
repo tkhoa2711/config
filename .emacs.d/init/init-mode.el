@@ -37,6 +37,7 @@
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.\\(md\\|markdown\\)$" . markdown-mode))
 
+
 ;; ============================================================================
 ;; other modes
 
@@ -53,6 +54,9 @@
 (setq ido-separator "\n")
 
 (setq ido-enable-flex-matching t)
+
+;; column-number-mode
+(setq column-number-mode t)
 
 
 ;; ----------------------------------------------------------------------------
