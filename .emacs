@@ -118,7 +118,8 @@
   (unless (file-directory-p backup-dir)
     (message "Directory does not exist: %s. Creating it." backup-dir)
     (mkdir backup-dir))
-  (setq backup-directory-alist `((".*" . ,backup-dir))))
+  (setq backup-directory-alist `((".*" . ,backup-dir)))
+  (setq auto-save-file-name-transforms `((".*" ,backup-dir t))))
 
 (setq backup-by-copying t    ; don't delink hardlinks
       delete-old-versions t  ; clean up the backups
