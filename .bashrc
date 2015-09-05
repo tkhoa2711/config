@@ -170,6 +170,7 @@ alias e='TERM=xterm-256color emacsclient'
 
 # misc
 alias c='clear'                         # equivalent to Ctrl-L
+alias br="printf '\e[47m%*s\n' \"${COLUMNS:-$(tput cols)}\" ''" # print out a visual break line
 alias bc='bc -l'                        # start calculator with math support
 alias path='echo -e ${PATH//:/\\n}'     # show $PATH in a nice way
 alias gerp='grep'                       # common typo
