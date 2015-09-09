@@ -21,6 +21,9 @@
 [alias]
 ; edit the current repo's hgrc file
 editrc = !$EDITOR `$HG root`/.hg/hgrc
+; difc = log -vpr 
+difs = shelve -l -p
+transfer = transplant -s
 
 [defaults]
 ; rebase = --keepbranches
