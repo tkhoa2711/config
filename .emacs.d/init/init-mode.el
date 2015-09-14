@@ -55,8 +55,14 @@
 
 (setq ido-enable-flex-matching t)
 
-;; column-number-mode
+;; column-number-mode -----------------
 (setq column-number-mode t)
+
+;; open recent files ------------------
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key (kbd "C-x C-o") 'recentf-open-files)
 
 
 ;; ----------------------------------------------------------------------------
