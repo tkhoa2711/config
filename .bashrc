@@ -168,17 +168,22 @@ alias diff='git diff --no-index'        # in case colordiff is not available
 alias emacs='TERM=xterm-256color emacs -nw' # allow emacs to remain beautiful as usual in tmux
 alias e='TERM=xterm-256color emacsclient'
 
+# compilation
+alias mj='makec -j10' # beat it!!!
+alias tu='$EDITOR Tupfile'
+
+# search
+alias gerp='grep'                       # common typo
+alias grep='grep -n --color'
+alias egrep='egrep -n --color'
+
 # misc
 alias c='clear'                         # equivalent to Ctrl-L
 alias br="printf '\e[47m%*s\n' \"${COLUMNS:-$(tput cols)}\" ''" # print out a visual break line
 alias bc='bc -l'                        # start calculator with math support
 alias path='echo -e ${PATH//:/\\n}'     # show $PATH in a nice way
-alias gerp='grep'                       # common typo
-alias grep='grep -n --color'
-alias egrep='egrep -n --color'
 alias h='history'
 alias mnt='mount | column -t'           # show results of 'mount' in a nice format
-alias tu='vim Tupfile'
 
 # -----------------------------------------------------------------------
 # editing
