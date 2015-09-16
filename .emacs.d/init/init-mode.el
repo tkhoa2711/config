@@ -58,6 +58,9 @@
 ;; column-number-mode -----------------
 (setq column-number-mode t)
 
+;; display-time-mode ------------------
+(display-time-mode 1)
+
 ;; open recent files ------------------
 (require 'recentf)
 (recentf-mode 1)
