@@ -1,4 +1,5 @@
 # ignore Finder's metadata files on Mac OS
 .DS_Store
 .authinfo
+.elc
 
