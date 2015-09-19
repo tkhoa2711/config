@@ -129,6 +129,7 @@
       )
 
 (defun toggle-show-trailing-whitespace ()
+  (interactive)
   (setf show-trailing-whitespace (not show-trailing-whitespace)))
 
 ; (defun save-core (core-fn)
@@ -152,17 +153,6 @@
 
 
 ;; ===========================================================================
-;; setup MELPA repository
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; for important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
-(package-initialize)
-
-;; ===========================================================================
 ;; this need to be set after initializing package.el
 ;; color-theme
 (require 'color-theme)
@@ -177,40 +167,6 @@
 
 
 ;; ===========================================================================
-;; loading SLIME
-
-;(load (expand-file-name "~/quicklisp/slime-helper.el"))
-
-;; setup loadpath for SLIME manually
-;(add-to-list 'load-path "~/lisp/slime")
-(require 'slime)
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-
-;; specify the lisp program you are using. Default is "lisp"
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
-
-;; custom core file to improve loading SLIME speed
-;; preload packages for sockets, posix, introspect, asdf
-
-;; those that take the most time to load.
-;;
-;; create the core by executing the following:
-;; * (mapc 'require '(sb-bsd-sockets sb-posix sb-introspect sb-cltl2 asdf))
-;; * (save-lisp-and-die "sbcl.core-for-slime")
-; (setq slime-lisp-implementations
-;       '((sbcl ("sbcl" "--core" "sbcl.core-for-slime"))))
-
-; (setq slime-net-coding-system 'utf-8-unix)
-
-;; set to load contrib packages
-;(setq slime-contribs '(slime-scratch slime-editing-command))   ; basic stuffs
-;(setq slime-contribs '(slime-repl))                            ; repl only
-;(add-to-list 'slime-contribs 'slime-repl)
-;(add-to-list 'slime-contribs 'slime-fancy)
-(setq slime-contribs '(slime-fancy))                            ; almost everything (fancy)
-(slime-setup '(slime-fancy slime-asdf))
-
 ;(setf asdf:*central-registry*
       ;; default directories, usually just the ``current directory''
 ;      '(*default-pathname-defaults*
