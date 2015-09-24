@@ -208,6 +208,11 @@ shopt -s histappend                     # append to the histoy file, don't overw
 
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
+# check the window size after each command and update the values of
+# LINES and COLUMNS if necessary
+shopt -s checkwinsize
+
+
 # -----------------------------------------------------------------------
 # PATH settings
 # -----------------------------------------------------------------------
