@@ -20,4 +20,5 @@
     l = log
     b = branch
     last = log -1 HEAD
+    cl = clean -df
 
