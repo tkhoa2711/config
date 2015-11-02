@@ -180,8 +180,10 @@
 ;; ===========================================================================
 ;; miscellaneous
 
-;; emacs server
-(server-start)
+;; start emacs server (only if it's not already started)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; define-word -------------------------
 (add-to-list 'load-path "~/.emacs.d/lisp/define-word")
