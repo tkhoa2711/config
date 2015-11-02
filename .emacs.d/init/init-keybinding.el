@@ -49,6 +49,18 @@
 
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 
+;; settings for CMD and OPTION key in Mac OS
+(with-system darwin
+  (eval-when-compile
+    (defvar mac-option-key-is-meta)
+    (defvar mac-command-key-is-meta)
+    (defvar mac-command-modifier)
+    (defvar mac-option-modifier))
+  (setq mac-option-key-is-meta nil)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'nil))
+
 ;; ============================================================================
 
 (provide 'init-keybinding)
