@@ -16,6 +16,7 @@
   (add-path "lisp")  ; my persoanl lisp code
   )
 
+(require 'init-util)
 (require 'init-package)
 (require 'init-keybinding)
 (require 'init-mode)
