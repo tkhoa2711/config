@@ -8,17 +8,20 @@
 ; TODO add recursive dir to load-path
 
 (cl-labels ((add-path (p)
-		   (let ((default-directory (concat (file-name-as-directory emacs-root) p)))
-		     (normal-top-level-add-to-load-path '("."))
-		     (normal-top-level-add-subdirs-to-load-path))))
+                      (let ((default-directory (concat (file-name-as-directory emacs-root) p)))
+                        (normal-top-level-add-to-load-path '("."))
+                        (normal-top-level-add-subdirs-to-load-path))))
   (add-path "init")  ; init files go here
   (add-path "elisp") ; my personal elisp code
   (add-path "lisp")  ; my persoanl lisp code
   )
 
 (require 'init-util)
-(require 'init-package)
+(require 'init-face)
+(require 'init-formatting)
+(require 'init-hook)
 (require 'init-keybinding)
 (require 'init-mode)
+(require 'init-package)
 
 ;;; init.el ends here
