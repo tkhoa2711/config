@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# get the most recent directory within a given path
+function recent_dir ()
+{
+    local dir=$(\ls $1 | tail -1)
+    echo "$1/$dir"
+}
