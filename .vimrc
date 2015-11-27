@@ -76,6 +76,8 @@
 "
 " :w !diff % -      : show diff of last saved version with current unsaved version
 " :colorscheme      : show current colorscheme
+" :so $MYVIMRC      : reload (source) vim config
+" :set <op>?        : display the option value
 " make              : built-in make
 " X                 : encrypt current buffer with prompted password
 " u                 : undo
@@ -284,6 +286,8 @@ if has("autocmd")
     " enable filetype-based indentation
     " use indentation scripts locate in the 'indent' directory
     filetype plugin indent on
+
+    au filetype html setl ts=2 sts=2 sw=2 et
 endif
 
 
