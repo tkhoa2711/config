@@ -1,5 +1,20 @@
 ;;; init-keybinding.el
 
+;; settings for CMD and OPTION key in Mac OS
+(with-system darwin
+  (eval-when-compile
+    (defvar mac-option-key-is-meta)
+    (defvar mac-command-key-is-meta)
+    (defvar mac-command-modifier)
+    (defvar mac-option-modifier))
+  (setq mac-option-key-is-meta nil)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'nil))
+
+;; press RET should enter newline and indent
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
   Move point to the first non-whitespace character on this line.
@@ -16,6 +31,12 @@
 ;; kill from the current position to the beginning of line
 ;; C-0 C-k is the original way to do this
 (global-set-key "\M-k" '(lambda () (interactive) (kill-line 0)))
+
+;; entented selection
+(use-package expand-region
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region)
+  )
 
 ;; ============================================================================
 ;; BUFFER
@@ -49,17 +70,35 @@
 
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 
-;; settings for CMD and OPTION key in Mac OS
-(with-system darwin
-  (eval-when-compile
-    (defvar mac-option-key-is-meta)
-    (defvar mac-command-key-is-meta)
-    (defvar mac-command-modifier)
-    (defvar mac-option-modifier))
-  (setq mac-option-key-is-meta nil)
-  (setq mac-command-key-is-meta t)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'nil))
+(defun other-window-kill-buffer ()
+  "Kill the buffer in other window, normally a temporary buffer."
+  (interactive)
+  (let ((win-curr (selected-window))
+        (win-other (next-window)))
+    (select-window win-other)
+    (kill-this-buffer)
+    (select-window win-curr)))
+
+(global-set-key (kbd "C-x c") 'other-window-kill-buffer)
+
+(defun new-buffer ()
+  "Create a new empty buffer."
+  (interactive)
+  (let ((buf (generate-new-buffer "untitle")))
+    (switch-to-buffer buf)
+    (funcall (and initial-major-mode))
+    (setq buffer-offer-save t)))
+
+(global-set-key "\C-n" 'new-buffer)
+
+(defun prev-window ()
+  "Go to previous windows."
+  (interactive)
+  (other-window -1))
+
+(global-set-key (kbd "C-." ) 'other-window)
+(global-set-key (kbd "C-," ) 'prev-window)
+
 
 ;; ============================================================================
 

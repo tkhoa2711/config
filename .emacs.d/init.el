@@ -13,15 +13,15 @@
                         (normal-top-level-add-subdirs-to-load-path))))
   (add-path "init")  ; init files go here
   (add-path "elisp") ; my personal elisp code
-  (add-path "lisp")  ; my persoanl lisp code
+  (add-path "lisp")  ; my personal lisp code
   )
 
+(require 'init-package)
 (require 'init-util)
 (require 'init-face)
 (require 'init-formatting)
 (require 'init-hook)
 (require 'init-keybinding)
 (require 'init-mode)
-(require 'init-package)
 
 ;;; init.el ends here

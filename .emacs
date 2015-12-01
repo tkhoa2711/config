@@ -73,8 +73,6 @@
 
 
 ;; INIT
-(require 'cl)
-
 (defvar emacs-root "~/.emacs.d/"
   "The root of my emacs evolution.")
 
@@ -83,31 +81,11 @@
 
 ;; ===========================================================================
 
-(set-language-environment "utf-8")
-
-;; in OS X use 'cmd as 'meta key
-; (setq mac-command-modifier 'meta)
-; (setq mac-option-modifier 'nil)
-
-(setq-default
- indent-tab-mode nil ; no tab please!
- cursor-in-non-selected-window nil
- require-final-newline 'ask
- )
-
 ;; coloring while on window system
 (when window-system
   (set-foreground-color "white")
   (set-background-color "black"))
 
-;; hot key for switching between windows
-;; C-x o is probably the worst default emacs setup :|
-(defun prev-window ()
-    (interactive)
-    (other-window -1))
-
-(global-set-key (kbd "C-." ) 'other-window)
-(global-set-key (kbd "C-," ) 'prev-window)
 
 ;; ============
 ;; == BACKUP ==
@@ -127,10 +105,6 @@
       kept-old-versions 2    ; and some old ones, too
       version-control t      ; use version numbers on backups
       )
-
-(defun toggle-show-trailing-whitespace ()
-  (interactive)
-  (setf show-trailing-whitespace (not show-trailing-whitespace)))
 
 ; (defun save-core (core-fn)
 ;   "Save the lisp core in a cool way"

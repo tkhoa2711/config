@@ -1,7 +1,12 @@
 ;;; init-formatting.el
 
-;; tabs are evil, never use it!
-(setq-default indent-tabs-mode nil)
+(set-language-environment "utf-8")
+
+(setq-default
+ indent-tabs-mode nil ; no tab please!
+ cursor-in-non-selected-window nil
+ require-final-newline 'ask
+ )
 
 ;; http://www.emacswiki.org/emacs/NoTabs
 ;; when open a file, default indentation is space, only use tabs if
@@ -29,6 +34,14 @@ Non-interactive arguments are BEGIN, END and REGEXP."
           (setq count (1+ count))))
       (if interactive (message "%d occurrences" count))
       count)))
+
+;; bind infer-indentation-style to your mode hook
+
+(defun toggle-show-trailing-whitespace ()
+  (interactive)
+  (setf show-trailing-whitespace (not show-trailing-whitespace)))
+
+;; ----------------------------------------------------------------------------
 
 (provide 'init-formatting)
 
