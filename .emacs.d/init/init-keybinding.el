@@ -19,9 +19,9 @@
   "Move point to first non-whitespace character or beginning-of-line.
   Move point to the first non-whitespace character on this line.
   If point was already at that position, move point to beginning of line."
-  (interactive)			        ; use (interactive "^") in Emacs 23 to make shift-select work
+  (interactive)                         ; use (interactive "^") in Emacs 23 to make shift-select work
   (let ((oldpos (point)))
-    (back-to-indentation) 		; go to first non-whitespace character
+    (back-to-indentation)               ; go to first non-whitespace character
     (and (= oldpos (point))
          (beginning-of-line))))
 
@@ -31,6 +31,12 @@
 ;; kill from the current position to the beginning of line
 ;; C-0 C-k is the original way to do this
 (global-set-key "\M-k" '(lambda () (interactive) (kill-line 0)))
+
+;; prevent accidental exit from emacs
+(global-set-key (kbd "C-x C-c") '(lambda ()
+                                   (interactive)
+                                   (if (y-or-n-p-with-timeout "Do you really want to exit?" 3 nil)
+                                       (save-buffers-kill-emacs))))
 
 ;; entented selection
 (use-package expand-region
