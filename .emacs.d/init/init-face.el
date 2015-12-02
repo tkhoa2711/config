@@ -7,7 +7,8 @@
 ;; \\(\\sw\\|\\s_\\)+ : a variable name
 ;; [ \t\n]*           : whitespace including newlines
 
-
+;; highlight function's name
+;; http://stackoverflow.com/questions/18289329/how-to-highlight-all-the-functions-name-in-emacs-lisp-mode
 (defface font-lock-func-face
   '((nil (:foreground "#7F0055" :weight bold))
     (t (:bold t :italic t)))
@@ -18,6 +19,8 @@
  'emacs-lisp-mode
  '(("(\\s-*\\(\\_<\\(?:\\sw\\|\\s_\\)+\\)\\_>"
     1 'font-lock-func-face)))
+
+;; ----------------------------------------------------------------------------
 
 (provide 'init-face)
 
