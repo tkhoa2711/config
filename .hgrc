@@ -57,6 +57,7 @@ fetch = -m"MERGE Automated merge with latest chages"
 
 [ui]
 username = $USER
+merge = internal:merge
 
 [pager]
 attend =
