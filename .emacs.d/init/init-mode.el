@@ -101,6 +101,9 @@
 ;; if the buffer is modified, it won't be reverted
 (global-auto-revert-mode t)
 
+;; save history of the minibuffer
+(savehist-mode 1)
+
 ;; ido-mode ---------------------------
 ;; use ido-mode for switching buffers
 ;; (ido-mode 1)
