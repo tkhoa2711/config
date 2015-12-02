@@ -123,7 +123,8 @@
 ;; use ibuffer to list buffers
 (defalias 'list-buffers 'ibuffer)
 
-(setq vc-follow-symlinks t)
+;; use the symlink to open file instead of opening the actual file
+(setq vc-follow-symlinks nil)
 
 
 ;; ===========================================================================
