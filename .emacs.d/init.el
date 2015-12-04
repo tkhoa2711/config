@@ -18,6 +18,7 @@
 
 (require 'init-package)
 (require 'init-util)
+(require 'init-env)
 (require 'init-face)
 (require 'init-formatting)
 (require 'init-hook)
