@@ -20,4 +20,7 @@
   (let ((use-dialog-box nil))
     ad-do-it))
 
+
+(provide 'init-patch)
+
 ;;; init-patch.el ends here

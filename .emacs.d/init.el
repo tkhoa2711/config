@@ -19,10 +19,12 @@
 (require 'init-package)
 (require 'init-util)
 (require 'init-env)
+(require 'init-display)
 (require 'init-face)
 (require 'init-formatting)
 (require 'init-hook)
 (require 'init-keybinding)
 (require 'init-mode)
+(require 'init-patch)
 
 ;;; init.el ends here
