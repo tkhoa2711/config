@@ -1,3 +1,4 @@
+;;; -*- mode: common-lisp -*-
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
