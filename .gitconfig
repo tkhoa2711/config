@@ -25,4 +25,5 @@
     # that no longer exist on the remote; then update all the submodules
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
     amend = commit -a --amend
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit
 
