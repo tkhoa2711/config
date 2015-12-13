@@ -1,3 +1,5 @@
+;;; -*- mode: el -*-
+
 (setq gnus-select-method
       '(nnimap "gmail"
 	       (nnimap-address "imap.gmail.com") ; it could also be imap.googlemail.com if that's your server.
@@ -6,3 +8,5 @@
 
 (setq smtpmail-smtp-service 587
       gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+
+;;; .gnus ends here
