@@ -44,6 +44,14 @@
   (global-set-key (kbd "C-=") 'er/expand-region)
   )
 
+;; use Slime's style of navigation to source of symbol at point and back
+;; with M-. and M-,
+(use-package elisp-slime-nav
+  :config
+  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+    (add-hook hook 'turn-on-elisp-slime-nav-mode)))
+
+
 ;; ============================================================================
 ;; BUFFER
 ;; ----------------------------------------------------------------------------
