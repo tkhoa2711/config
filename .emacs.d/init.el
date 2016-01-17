@@ -25,6 +25,7 @@
 (require 'init-hook)
 (require 'init-keybinding)
 (require 'init-mode)
+(require 'init-org)
 (require 'init-patch)
 
 ;;; init.el ends here
