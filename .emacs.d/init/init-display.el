@@ -4,6 +4,6 @@
 (setq ring-bell-function 'ignore)
 
 
-(require 'init-display)
+(provide 'init-display)
 
 ;;; init-display.el ends here
