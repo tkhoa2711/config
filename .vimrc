@@ -83,6 +83,7 @@
 " u                 : undo
 " Ctrl-R            : redo
 " .                 : repeat last change
+" @:                : repeat last command
 " J                 : join current line with the line below
 "
 "____________________ vim-trailing-whitespace
