@@ -61,9 +61,11 @@
 "
 " ___________________ MARK/REGISTER
 "
-" m[a-z]            : set [a-z] mark at current location
-" ['|`][a-z]        : move to [beginning of line/exact location] of [a-z] mark
-" [d|y][a-z]        : cut/copy the from [a-z] mark to the next mark
+" :marks            : list all marks
+" m[a-zA-Z]         : set mark [a-zA-Z] at current location
+" ['|`]x            : move to [beginning of line/exact location] of mark x
+" [d|y]x            : cut/copy the from mark x to the next mark
+" [d|y]["|']x       : cut/copy from the current line/cursor position to that of mark x
 " {|}               : move to the beginning/end of current paragraph
 " { [d|y]}          : cut/copy a paragraph at current cursor
 " y}                : copy paragraph if already at the first line of the paragraph
