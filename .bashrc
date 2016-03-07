@@ -174,7 +174,7 @@ alias tu='$EDITOR Tupfile'
 
 # search
 alias gerp='grep'                       # common typo
-alias grep='grep -n --color'
+alias grep='grep -v grep | grep --color'
 alias egrep='egrep -n --color'
 
 # misc
