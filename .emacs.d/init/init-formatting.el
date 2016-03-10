@@ -41,6 +41,12 @@ Non-interactive arguments are BEGIN, END and REGEXP."
   (interactive)
   (setf show-trailing-whitespace (not show-trailing-whitespace)))
 
+;; http://stackoverflow.com/questions/17764326/emacs-proper-cl-flet-indentation
+(eval-after-load "cl-indent"
+  '(progn
+     (put 'cl-flet 'common-lisp-indent-function
+          (get 'flet 'common-lisp-indent-function))))
+
 ;; ----------------------------------------------------------------------------
 
 (provide 'init-formatting)
