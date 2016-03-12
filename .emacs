@@ -73,10 +73,13 @@
 
 
 ;; INIT
-(defvar emacs-root "~/.emacs.d/"
-  "The root of my emacs evolution.")
+(unless (boundp 'user-emacs-directory)
+  (defvar user-emacs-directory "~/.emacs.d/"
+    "This is the place where additional Emacs' user-specific files locate beneath.
+Note that this shuold end with a directory separator.
+And that is the root of my emacs evolution."))
 
-(load "~/.emacs.d/init.el")
+(load (concat user-emacs-directory "init.el"))
 
 
 ;; ===========================================================================
@@ -92,7 +95,7 @@
 ;; ============
 ;; put all backup and auto-save files in one nice place if possible
 ;; uncomment these if you wish to keep all in one place
-(let ((backup-dir (concat (file-name-as-directory emacs-root) ".backup")))
+(let ((backup-dir (concat user-emacs-directory ".backup")))
   (unless (file-directory-p backup-dir)
     (message "Directory does not exist: %s. Creating it." backup-dir)
     (mkdir backup-dir))
