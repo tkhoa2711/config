@@ -25,5 +25,6 @@
 (require 'init-mode)
 (require 'init-org)
 (require 'init-patch)
+(require 'init-local nil 'noerror)
 
 ;;; init.el ends here
