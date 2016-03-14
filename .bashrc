@@ -99,7 +99,7 @@ esac
 
 # -----------------------------------------------------------------------
 # source the utlity files containing aliases and functions for bash
-BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color)
+BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color .bash_local)
 BASH_UTIL_FILE_DIR=$HOME
 for file in $BASH_UTIL_FILE_LIST; do
     [[ -f $BASH_UTIL_FILE_DIR/$file ]] && source $BASH_UTIL_FILE_DIR/$file
