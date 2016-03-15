@@ -270,6 +270,10 @@ noremap <C-t> <Esc>:tabnew<CR>
 " faster way to open a vertical buffer and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
 
+" open new split pane in a more natural way
+set splitbelow
+set splitright
+
 
 " -------------------------------------------------------------------------
 " INDENTATION
