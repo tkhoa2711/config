@@ -23,9 +23,14 @@
     b = branch
     last = log -1 HEAD
     cl = clean -df
+
     # pull remote changes and rebase them, also remove remote-tracking branches
     # that no longer exist on the remote; then update all the submodules
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+
     amend = commit -a --amend
     tree = log --graph --decorate --pretty=oneline --abbrev-commit
+
+    # grab all stuffs from upstream and compare current branch against the upstream master branch
+    in = !git fetch && git log ..origin/master
 
