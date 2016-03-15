@@ -98,14 +98,6 @@ case "$OSTYPE" in
 esac
 
 # -----------------------------------------------------------------------
-# source the utlity files containing aliases and functions for bash
-BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color .bash_local)
-BASH_UTIL_FILE_DIR=$HOME
-for file in $BASH_UTIL_FILE_LIST; do
-    [[ -f $BASH_UTIL_FILE_DIR/$file ]] && source $BASH_UTIL_FILE_DIR/$file
-done
-
-# -----------------------------------------------------------------------
 # aliases
 # -----------------------------------------------------------------------
 # directory
@@ -212,12 +204,10 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # LINES and COLUMNS if necessary
 shopt -s checkwinsize
 
-
 # -----------------------------------------------------------------------
 # PATH settings
 # -----------------------------------------------------------------------
 export EMACS_D=~/.emacs.d
-
 
 # -----------------------------------------------------------------------
 # python
@@ -286,5 +276,9 @@ set_prompt ()
 set_prompt
 
 # -----------------------------------------------------------------------
-# other environment-specific settings here
-# ...
+# load other settings here
+BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color .bash_local)
+BASH_UTIL_FILE_DIR=$HOME
+for file in $BASH_UTIL_FILE_LIST; do
+    [[ -f $BASH_UTIL_FILE_DIR/$file ]] && source $BASH_UTIL_FILE_DIR/$file
+done
