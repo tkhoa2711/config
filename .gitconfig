@@ -1,8 +1,8 @@
 # -*- mode: conf -*-
 
 [user]
-    name = Le Tan Khoa
-    email = tkhoa2711@yahoo.com.vn
+    name = Khoa Le
+    email = ltkhoa2711@gmail.com
 
 [push]
     default = simple
