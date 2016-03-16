@@ -166,7 +166,7 @@ alias tu='$EDITOR Tupfile'
 
 # search
 alias gerp='grep'                       # common typo
-alias grep='grep -v grep | grep --color'
+alias grep='grep --color'
 alias egrep='egrep -n --color'
 
 # misc
@@ -212,10 +212,12 @@ export EMACS_D=~/.emacs.d
 # -----------------------------------------------------------------------
 # python
 # -----------------------------------------------------------------------
-#alias virtualenv='~/source/py-env0/bin/virtualenv'
-export PATH=~/source/py-env0/bin:$PATH
-export WORKON_HOME="$HOME/.virtualenvs"
-source virtualenvwrapper.sh
+if [[ `which virtualenvwrapper.sh 2>/dev/null 1>&2` ]] && [[ "$?" == "0" ]]; then
+    #alias virtualenv='~/source/py-env0/bin/virtualenv'
+    export PATH=~/source/py-env0/bin:$PATH
+    export WORKON_HOME="$HOME/.virtualenvs"
+    source virtualenvwrapper.sh
+fi
 
 # default python working environment
 # workon default
@@ -279,6 +281,6 @@ set_prompt
 # load other settings here
 BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color .bash_local)
 BASH_UTIL_FILE_DIR=$HOME
-for file in $BASH_UTIL_FILE_LIST; do
-    [[ -f $BASH_UTIL_FILE_DIR/$file ]] && source $BASH_UTIL_FILE_DIR/$file
+for file in "${BASH_UTIL_FILE_LIST[@]}"; do
+    [[ -f $BASH_UTIL_FILE_DIR/$file ]] && echo "Loading $file .." && source $BASH_UTIL_FILE_DIR/$file
 done
