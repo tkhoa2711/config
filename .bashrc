@@ -194,7 +194,7 @@ export EDITOR=vim
 export HISTFILESIZE=100000              # we got plenty of spaces, what should we do
 export HISTSIZE=100000
 export HISTTIMEFORMAT='%F %T '
-#HISTCONTROL=ignoreboth                 # ignore duplicate lines, lines starting with space
+export HISTCONTROL=ignoredups           # ignore duplicate lines
 
 shopt -s histappend                     # append to the histoy file, don't overwrite it
 
