@@ -137,10 +137,11 @@ if [[ `which virtualenvwrapper.sh 2>/dev/null 1>&2` ]] && [[ "$?" == "0" ]]; the
     export PATH=~/source/py-env0/bin:$PATH
     export WORKON_HOME="$HOME/.virtualenvs"
     source virtualenvwrapper.sh
+
+    # default python working environment
+    # workon default
 fi
 
-# default python working environment
-# workon default
 
 # -----------------------------------------------------------------------
 # GTest
@@ -150,32 +151,6 @@ export GTEST_DIR=~/source/gtest
 # -----------------------------------------------------------------------
 # command prompt
 # -----------------------------------------------------------------------
-
-# START_FG_COLOR="\e[o;34m"
-# START_BG_COLOR="\e[47m"
-# END_COLOR="\e[0m"
-# export PS1="${START_FG_COLOR}${START_BG_COLOR}\u@\h \w> ${END_COLOR}"
-#
-# function prompt {
-#   local BLUE="\[\033[0;34m\]"
-#   local DARK_BLUE="\[\033[1;34m\]"
-#   local RED="\[\033[0;31m\]"
-#   local DARK_RED="\[\033[1;31m\]"
-#   local NO_COLOR="\[\033[0m\]"
-#   case $TERM in
-#       xterm*|rxvt*)
-#           TITLEBAR='\[\033]0;\u@\h:\w\007\]'
-#           ;;
-#       *)
-#           TITLEBAR=""
-#           ;;
-#   esac
-#   PS1="\u@\h [\t]> "
-#   PS1="${TITLEBAR}\
-#   $BLUE\u@\h $RED[\t]>$NO_COLOR "
-#   PS2='continue-> '
-#   PS4='$0.$LINENO+ '
-# }
 
 set_prompt ()
 {
@@ -190,7 +165,6 @@ set_prompt ()
     local RESET="\[\e[0m\]"
 
     export PS1="${GREEN}\h${WHITE}:${GREEN}\u${YELLOW}[$BRANCH] ${CYAN}\t ${PURPLE}\w ${RESET}"
-    #export PS1="\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;32m\]\u\[\e[0;33m\][${BRANCH}] \[\e[0;36m\]\t \[\e[0;31m\]\w \[\e[0m\]"
     #export PS2="> "
     #export PS4="+ "
 }
@@ -204,3 +178,4 @@ BASH_UTIL_FILE_DIR=$HOME
 for file in "${BASH_UTIL_FILE_LIST[@]}"; do
     [[ -f $BASH_UTIL_FILE_DIR/$file ]] && echo "Loading $file .." && source $BASH_UTIL_FILE_DIR/$file
 done
+
