@@ -63,20 +63,20 @@ case "$OSTYPE" in
     linux*)     # Linux
         alias duhere='\du -h --max-depth=1'
         ;;
-    
+
     bsd*)       # BSD
         ;;
-    
+
     solaris*)   # Solaris
         ;;
-    
+
     darwin*)    # Mac OS X
         # alias
         alias duhere='\du -h -d 1'
 
         # PATH
         export PATH="/usr/local/git/bin:$PATH"  # use the latest git version
-        
+
         # my own config on Mac OS
         alias devdir='cd ~/source/dev'
         alias sourcedir='cd ~/source'
@@ -85,10 +85,10 @@ case "$OSTYPE" in
 
         # autojump
         # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-    
+
     cygwin)     # Cygwin on Windows
         ;;
-    
+
     msys)       # Windows, MinGW
         ;;
 
@@ -96,86 +96,6 @@ case "$OSTYPE" in
         echo "Unknow OSTYPE: $OSTYPE"
         ;;
 esac
-
-# -----------------------------------------------------------------------
-# aliases
-# -----------------------------------------------------------------------
-# directory
-alias l='ll'
-alias ls='ls -F -color'
-alias ll='ls -ahltr -color'
-alias l.='ls -adlrt .* -color'
-alias lu='ls -alrt -F -color | grep $USER'
-alias lal='ls -altr -color'
-alias lcl='while true; do c; ll; sleep 2; done'
-alias j='autojump'
-
-#alias mv='mv-i'
-#alias rm='rm -i'
-#alias mkdir='mkdir -pv'
-
-# processes, jobs
-# alias jo='jobs -l'
-alias p='ps -aef | grep $USER'
-alias psm='ps -u ${USER} -f --sort comm'
-alias pst='ps -eLf'                     # display threads also
-alias pgk="ps -eaf | grep $1; ps -eaf | grep $1 | grep -v grep | sed -e \"s/  */ /g\" | cut -d' ' -f2"
-
-# datetime
-alias now='date +"%T"'
-alias nowtime=now
-alias nowdate='date + "%d-%m-%Y"'
-
-# system info
-alias meminfo='free -m -l -t'
-alias psmem='ps auxf | sort -nr -k 4'   # get top processes eating memory
-alias pscpu='ps auxf | sort -nr -k 3'   # get top processes etaing cpu
-alias cpuinfo=lscpu
-
-# disk usage
-alias du='du -ksh *'
-alias duh='\du -h'
-#alias df='df -ah'
-#alias du='du -ach'
-
-# networking
-alias ping='ping -c 5'                  # stop after sending count ECHO_REQUEST packets
-alias pingfast='ping -c 100 -s.2'       # don't wait for 1-second interval, move fast
-alias ports='netstat -tulanp'           # list all tcp/udp ports
-
-alias wget='wget -c'                    # resume wget by default
-
-# dotfiles
-alias vimrc='vim ~/.vimrc'              # edit these as swift as possible
-alias bashrc='vim ~/.bashrc'
-alias emacsrc='vim ~/.emacs'
-alias hgrc='vim ~/.hgrc'
-
-# editing
-alias vi='vim -X'
-alias vim='vim -X'
-#alias diff=colordiff
-alias diff='git diff --no-index'        # in case colordiff is not available
-#alias diff='vim -d'                    # enable if you prefer using vim diff
-alias emacs='TERM=xterm-256color emacs -nw' # allow emacs to remain beautiful as usual in tmux
-alias e='TERM=xterm-256color emacsclient'
-
-# compilation
-alias mj='makec -j10' # beat it!!!
-alias tu='$EDITOR Tupfile'
-
-# search
-alias gerp='grep'                       # common typo
-alias grep='grep --color'
-alias egrep='egrep -n --color'
-
-# misc
-alias c='clear'                         # equivalent to Ctrl-L
-alias br="printf '\e[47m%*s\n' \"${COLUMNS:-$(tput cols)}\" ''" # print out a visual break line
-alias bc='bc -l'                        # start calculator with math support
-alias path='echo -e ${PATH//:/\\n}'     # show $PATH in a nice way
-alias h='history'
-alias mnt='mount | column -t'           # show results of 'mount' in a nice format
 
 # -----------------------------------------------------------------------
 # editing
