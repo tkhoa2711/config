@@ -102,11 +102,8 @@ esac
 # -----------------------------------------------------------------------
 export EDITOR=vim
 
-# helper function to edit dotfiles easily
-#dot()
-#{
-#    $EDITOR ~/.$1
-#}
+# emacs FTW!!!
+set -o emacs
 
 # -----------------------------------------------------------------------
 # history settings
@@ -141,7 +138,6 @@ if [[ `which virtualenvwrapper.sh 2>/dev/null 1>&2` ]] && [[ "$?" == "0" ]]; the
     # default python working environment
     # workon default
 fi
-
 
 # -----------------------------------------------------------------------
 # GTest
