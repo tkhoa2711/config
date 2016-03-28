@@ -38,10 +38,11 @@
                                    (if (y-or-n-p-with-timeout "Do you really want to exit?" 3 nil)
                                        (save-buffers-kill-emacs))))
 
-;; entented selection
+;; extended selection
 (use-package expand-region
   :config
   (global-set-key (kbd "C-=") 'er/expand-region)
+  (global-set-key (kbd "C-+") 'er/contract-region)
   )
 
 ;; use Slime's style of navigation to source of symbol at point and back
