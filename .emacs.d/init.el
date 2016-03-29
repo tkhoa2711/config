@@ -19,6 +19,7 @@
 (require 'init-env)
 (require 'init-display)
 (require 'init-face)
+(require 'init-filesystem)
 (require 'init-formatting)
 (require 'init-hook)
 (require 'init-keybinding)
