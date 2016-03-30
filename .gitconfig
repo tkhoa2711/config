@@ -29,7 +29,7 @@
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
     amend = commit -a --amend
-    tree = log --graph --decorate --pretty=oneline --abbrev-commit
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
     # grab all stuffs from upstream and compare current branch against the upstream master branch
     in = !git fetch && git log ..origin/master
