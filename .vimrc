@@ -148,6 +148,7 @@ set confirm                     " get a dialog when :q, :w or :wq fails
 
 let mapleader = "\<Space>"      " Power!!!
 
+
 " -------------------------------------------------------------------------
 " PLUG-IN
 " =========================================================================
@@ -155,8 +156,29 @@ let mapleader = "\<Space>"      " Power!!!
 " Use pathogen to easily modify the runtime path
 " and include all plugins under ~/.vim/bundle directory
 "call pathogen#runtime_append_all_bundles() ; looks like this is obsolete
-execute pathogen#infect()
-call pathogen#helptags()        " generate helptags for everything in 'runtimepath'
+" execute pathogen#infect()
+" call pathogen#helptags()        " generate helptags for everything in 'runtimepath'
+
+" setup Vundle
+filetype off                    " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
+
+" plugin list
+Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tkhoa2711/vim-togglenumber'
+Plugin 'tomtom/tcomment_vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()               " required
+filetype plugin indent on       " required
 
 
 " -------------------------------------------------------------------------
@@ -205,9 +227,11 @@ call MkDir(&directory)
 
 syntax on
 set t_Co=256
-colorscheme 256-grayvim
-"colorscheme monokai
-"colorscheme torte
+try
+    colorscheme 256-grayvim
+catch
+    " install it later
+endtry
 
 " highlight tab characters, trailing whitespaces and invisible spaces visually
 " use # at end of line to mark lines that extend off-screen
