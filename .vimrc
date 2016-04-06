@@ -172,6 +172,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin list
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tkhoa2711/vim-togglenumber'
 Plugin 'tomtom/tcomment_vim'
@@ -528,3 +529,7 @@ let g:tagbar_show_visibility = 1
 let g:tagbar_autopreview = 0
 " autocmd VimEnter * nested :call tagbar#autoopen(1)
 
+" vim-expand-region -------------------
+" region expanding with just 'v' and 'C-v'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
