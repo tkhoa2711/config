@@ -242,6 +242,7 @@ autocmd filetype html,xml set listchars-=tab:>.     " not showing tabs for these
 " force syntax highlighting for these files
 au BufRead,BufNewFile .bash_* set filetype=sh
 au BufRead,BufNewFile *.asd set filetype=lisp
+au BufRead,BufNewFile *.lsp set filetype=newlisp
 
 
 " -------------------------------------------------------------------------
