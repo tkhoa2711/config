@@ -299,6 +299,15 @@ nnoremap <leader>w <C-w>v<C-w>l
 set splitbelow
 set splitright
 
+" display a list of buffers for selection
+nnoremap <F8> :buffers<CR>:buffer<Space>
+
+" set the listing style for NetRW window
+let g:netrw_liststyle=3
+
+" close the buffer without closing the window
+nmap <Leader>d :b#<bar>bd#<CR>
+
 
 " -------------------------------------------------------------------------
 " INDENTATION
