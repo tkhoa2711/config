@@ -131,7 +131,7 @@
 " <F5>  purge CtrlP cache
 " <F6>
 " <F7>  :TagbarToggle<CR>
-" <F8>
+" <F8>  list buffers and select one
 " <F9>  :make
 " ________________________________________________________________________
 
@@ -320,7 +320,7 @@ set tabstop=4
 set expandtab                   " turn a tab into spaces
                                 " use Ctrl-V <tab> to insert real tab character
 "set lazyredraw                 " no redraw in macros
-set shiftwidth=4                " nuber of spaces to use for auto-indenting when using << and >>
+set shiftwidth=4                " number of spaces to use for auto-indenting when using << and >>
 set smarttab                    " insert tabs on the start of lines according to shiftwidth, not tabstop
 
 if has("autocmd")
@@ -330,6 +330,12 @@ if has("autocmd")
 
     au filetype html setl ts=2 sts=2 sw=2 et
 endif
+
+" toggle on/off paste mode. Turn on paste-mode when pasting already-indented text
+set pastetoggle=<F3>
+
+" easy paste-toggling - <F3> doesn't seem to work correctly in tmux
+nnoremap <Leader>p :set invpaste paste?<CR>
 
 
 " -------------------------------------------------------------------------
