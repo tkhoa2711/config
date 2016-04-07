@@ -170,7 +170,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin list
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'endel/ctrlp-filetype.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'lilydjwg/colorizer'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
