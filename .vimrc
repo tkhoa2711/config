@@ -74,6 +74,14 @@
 "                     containing string 'foo' to register 'a'
 " "aP               : paste a copy from 'a' register before the current line
 "
+"____________________ SPELL CHECKING
+"
+" ]s                : move to the next mispelled word
+" [s                : move to the previous mispelled word
+" zg                : add a word to the dictionary
+" zug               : undo the addition of a word to the dictionary
+" z=                : view spelling suggestions for a mispelled word
+"
 "____________________ MISC
 "
 " :w !diff % -      : show diff of last saved version with current unsaved version
