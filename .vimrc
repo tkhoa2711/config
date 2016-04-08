@@ -286,6 +286,9 @@ set nowrap                      " no text wrapping
 "set matchtime=2                 " show matching bracket for 0.2 seconds
 "set matchpairs+=<:>             " specially for html
 
+" toggle spell checking
+nnoremap <Leader>s :set spell!<CR>
+
 
 " -------------------------------------------------------------------------
 " WINDOWS
@@ -306,7 +309,7 @@ noremap <C-t> <Esc>:tabnew<CR>
 " map <C-W> :q<CR>
 
 " faster way to open a vertical buffer and switch to it
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <Leader>w <C-w>v<C-w>l
 
 " open new split pane in a more natural way
 set splitbelow
