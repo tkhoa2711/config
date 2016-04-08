@@ -252,6 +252,9 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 autocmd filetype html,xml set listchars-=tab:>.     " not showing tabs for these filetypes
 
+" toggle displaying of whitespace character
+nnoremap <Leader><Leader> :set list!<CR>
+
 " force syntax highlighting for these files
 au BufRead,BufNewFile .bash_* set filetype=sh
 au BufRead,BufNewFile *.asd set filetype=lisp
