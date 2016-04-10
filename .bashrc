@@ -77,6 +77,8 @@ case "$OSTYPE" in
         # PATH
         export PATH="/usr/local/git/bin:$PATH"  # use the latest git version
 
+        export GREP_COLOR_OPTION='-color'
+
         # my own config on Mac OS
         alias devdir='cd ~/source/dev'
         alias sourcedir='cd ~/source'

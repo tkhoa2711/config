@@ -1,15 +1,17 @@
 #!/usr/bin/bash
 
+GREP_COLOR_OPTION=${GREP_COLOR_OPTION:-"--color"}
+
 # -----------------------------------------------------------------------
 # aliases
 # -----------------------------------------------------------------------
 # directory
 alias l='ll'
-alias ls='ls -F -color'
-alias ll='ls -ahltr -color'
-alias l.='ls -adlrt .* -color'
-alias lu='ls -alrt -F -color | grep $USER'
-alias lal='ls -altr -color'
+alias ls='ls -F $GREP_COLOR_OPTION'
+alias ll='ls -ahltr $GREP_COLOR_OPTION'
+alias l.='ls -adlrt .* $GREP_COLOR_OPTION'
+alias lu='ls -alrt -F $GREP_COLOR_OPTION | grep $USER'
+alias lal='ls -altr $GREP_COLOR_OPTION'
 alias lcl='while true; do c; ll; sleep 2; done'
 alias j='autojump'
 
