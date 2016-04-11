@@ -1,4 +1,4 @@
-;;; -*- mode: el -*-
+;;; -*- mode: elisp -*-
 
 (setq gnus-select-method
       '(nnimap "gmail"
