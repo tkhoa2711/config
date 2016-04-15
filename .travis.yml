@@ -1,0 +1,7 @@
+os:
+  - linux
+  - osx
+script: |
+  ./setup.sh
+notifications:
+  email: false
