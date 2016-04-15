@@ -62,7 +62,8 @@ _setup_emacs ()
 _setup_vim ()
 {
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    vim --version
+    vim +PluginInstall +qall &>/dev/null
 }
 
 _setup_tmux ()
