@@ -7,6 +7,6 @@
   (when buffer-file-name
     (kill-new (file-truename buffer-file-name))))
 
-(require 'init-filesystem)
+(provide 'init-filesystem)
 
 ;;; init-filesystem.el ends here
