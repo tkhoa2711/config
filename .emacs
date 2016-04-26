@@ -71,8 +71,9 @@
 ; , : enter command
 ;
 
-
+;; ===========================================================================
 ;; INIT
+
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/"
     "This is the place where additional Emacs' user-specific files locate beneath.
@@ -81,18 +82,9 @@ And that is the root of my emacs evolution."))
 
 (load (concat user-emacs-directory "init.el"))
 
-
 ;; ===========================================================================
+;; BACKUP
 
-;; coloring while on window system
-(when window-system
-  (set-foreground-color "white")
-  (set-background-color "black"))
-
-
-;; ============
-;; == BACKUP ==
-;; ============
 ;; put all backup and auto-save files in one nice place if possible
 ;; uncomment these if you wish to keep all in one place
 (let ((backup-dir (concat user-emacs-directory ".backup")))
@@ -109,19 +101,8 @@ And that is the root of my emacs evolution."))
       version-control t      ; use version numbers on backups
       )
 
-; (defun save-core (core-fn)
-;   "Save the lisp core in a cool way"
-;   (progn
-;     #+sbcl
-;     (let ((fork-result (sb-posix:fork)))
-;       (case for-result
-;         (-1 (error "fork failed!"))
-;         (0 (sb-ext:save-lisp-and-die core-fn :toplevel #'main :executable t))
-;         (otherwise (sb-ext:wait)))
-;       (format t "standalone core ~a saved." core-fn))
-;     #-sbcl
-;     (error "not supported on this lisp implementation")
-;     (values)))
+;; ===========================================================================
+;; miscellaneous
 
 ;; use ibuffer to list buffers
 (defalias 'list-buffers 'ibuffer)
@@ -129,58 +110,10 @@ And that is the root of my emacs evolution."))
 ;; use the symlink to open file instead of opening the actual file
 (setq vc-follow-symlinks nil)
 
-
-;; ===========================================================================
-;; this need to be set after initializing package.el
-;; color-theme
-(require 'color-theme)
-;(setq color-theme-is-global t)
-;(color-theme-initialize)
-;(color-theme-vim-colors)
-
-;; sublime-themes
-; (require 'emacs-color-themes)
-; (load-theme 'mccarthy t)
-(load-theme 'zenburn t)
-
-
-;; ===========================================================================
-;(setf asdf:*central-registry*
-      ;; default directories, usually just the ``current directory''
-;      '(*default-pathname-defaults*
-
-	;; additional places where ASDF can search
-;	#p"~/source/dev/lisp/"))
-;(require :asdf)
-;(pushnew "~/source/dev/lisp/" asdf:*central-registry* :test #'equal)
-
-
-;; ===========================================================================
-;; miscellaneous
-
 ;; start emacs server (only if it's not already started)
 (require 'server)
 (unless (server-running-p)
   (server-start))
 
-;; define-word -------------------------
-(add-to-list 'load-path "~/.emacs.d/lisp/define-word")
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
- '(custom-enabled-themes nil)
- '(custom-safe-themes (quote ("da7fa7211dd96fcf77398451e3f43052558f01b20eb8bee9ac0fd88627e11e22" default)))
- '(fci-rule-color "#383838")
- '(vc-annotate-background "#2B2B2B")
- '(vc-annotate-color-map (quote ((20 . "#BC8383") (40 . "#CC9393") (60 . "#DFAF8F") (80 . "#D0BF8F") (100 . "#E0CF9F") (120 . "#F0DFAF") (140 . "#5F7F5F") (160 . "#7F9F7F") (180 . "#8FB28F") (200 . "#9FC59F") (220 . "#AFD8AF") (240 . "#BFEBBF") (260 . "#93E0E3") (280 . "#6CA0A3") (300 . "#7CB8BB") (320 . "#8CD0D3") (340 . "#94BFF3") (360 . "#DC8CC3"))))
- '(vc-annotate-very-old-color "#DC8CC3"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+;; ===========================================================================
+;;; .emacs ends here
