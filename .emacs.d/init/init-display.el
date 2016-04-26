@@ -3,6 +3,14 @@
 ;; disable the bell
 (setq ring-bell-function 'ignore)
 
+;; use more appealing color theme for emacs on terminal
+(unless (display-graphic-p)
+  (use-package zenburn-theme
+    :init
+    (require 'color-theme)
+    :config
+    (load-theme 'zenburn t)))
+
 
 (provide 'init-display)
 
