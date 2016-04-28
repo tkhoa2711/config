@@ -7,6 +7,7 @@
 
 (cl-labels ((add-path (p)
                       (let ((default-directory (concat user-emacs-directory p)))
+                        (mkdir default-directory t)
                         (normal-top-level-add-to-load-path '("."))
                         (normal-top-level-add-subdirs-to-load-path))))
   (add-path "init")  ; init files go here
