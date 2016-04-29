@@ -7,7 +7,7 @@
 (unless (display-graphic-p)
   (use-package zenburn-theme
     :init
-    (require 'color-theme)
+    (use-package color-theme)
     :config
     (load-theme 'zenburn t)))
 

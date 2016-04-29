@@ -11,6 +11,15 @@
 
 (package-initialize)
 
+;; ============================================================================
+;; bootstrap `use-package'
+;; TODO this would fail if we're behind the corporate firewall which requires authentication
+;; more than often, after being authenticated, first request will fail for unknown reason
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; load `use-package'
 (eval-when-compile
   (require 'use-package)
   (setq use-package-always-ensure t))
