@@ -52,10 +52,13 @@ _setup_symlink ()
 
 _setup_emacs ()
 {
+    emacs -version
     mkdir -p $HOME/.emacs.d
     pushd $HOME/.emacs.d >/dev/null
     ln -s $CONFIG_DIR/.emacs.d/init.el
     ln -s $CONFIG_DIR/.emacs.d/init
+
+    emacs --batch --load "~/.emacs" --eval '(progn (sit-for 5) (message "Done loading emacs"))'
     popd >/dev/null
 }
 
