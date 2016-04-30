@@ -58,7 +58,7 @@ _setup_emacs ()
     ln -s $CONFIG_DIR/.emacs.d/init.el
     ln -s $CONFIG_DIR/.emacs.d/init
 
-    emacs --batch --load "~/.emacs" --eval '(progn (sit-for 5) (message "Done loading emacs"))'
+    emacs --batch --load ~/.emacs --eval '(progn (sit-for 5) (message "Done loading emacs"))'
     popd >/dev/null
 }
 
