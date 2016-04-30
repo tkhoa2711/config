@@ -45,7 +45,7 @@ _setup_symlink ()
     # setup symlinks
     pushd $HOME >/dev/null
     for FILE in "${SYMLINK_FILES[@]}"; do
-        [[ -f "$FILE" ]] && echo "$FILE already exists. Skipped." || ln -s $CONFIG_DIR/$FILE
+        [[ -f "$FILE" ]] && echo "$FILE already exists. Skipped." || ( ln -s $CONFIG_DIR/$FILE && echo "Setup $HOME/$FILE" )
     done
     popd >/dev/null
 }
