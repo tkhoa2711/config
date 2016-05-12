@@ -1,6 +1,8 @@
 os:
   - linux
   - osx
+env:
+  - EMACS=emacs-snapshot
 before_install: |
   if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
     brew update
