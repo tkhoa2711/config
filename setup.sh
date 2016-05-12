@@ -57,9 +57,9 @@ _setup_emacs ()
     pushd $HOME/.emacs.d >/dev/null
     ln -s $CONFIG_DIR/.emacs.d/init.el
     ln -s $CONFIG_DIR/.emacs.d/init
+    popd >/dev/null
 
     emacs --batch --load ~/.emacs --eval '(progn (sit-for 5) (message "Done loading emacs"))'
-    popd >/dev/null
 }
 
 _setup_vim ()
