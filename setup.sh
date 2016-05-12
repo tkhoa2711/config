@@ -17,7 +17,7 @@ do
 done
 
 PREFIX_DIR=${PREFIX_DIR:-/usr/local}
-CONFIG_DIR=${CONFIG_DIR:-$HOME/source/config}
+CONFIG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SYMLINK_FILES=(
     .profile
     .bashrc
