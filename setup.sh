@@ -74,8 +74,53 @@ _setup_tmux ()
     TMUX_VERSION=2.1
     LIBEVENT_VERSION=2.0.21
     NCURSES_VERSION=5.9
-    VERSION=$(tmux -V >/dev/null 2>&1)
-    # TODO
+    CURRENT_VERSION=$(tmux -V 2>/dev/null)
+    if [[ "$CURRENT_VERSION" =~ $TMUX_VERSION ]]; then
+        return
+    fi
+
+    TARGET_DIR=$HOME/local
+    mkdir -p $TARGET_DIR
+
+    local TMUX_NAME=tmux-${TMUX_VERSION}
+    local LIBEVENT_NAME=libevent-${LIBEVENT_VERSION}-stable
+    local NCURSES_NAME=ncurses-${NCURSES_VERSION}
+
+    # download source files for tmux, libevent, and ncurses
+    wget -O tmux-${TMUX_VERSION}.tar.gz http://sourceforge.net/projects/tmux/files/tmux/tmux-${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz/download
+    wget https://github.com/downloads/libevent/libevent/libevent-${LIBEVENT_VERSION}-stable.tar.gz
+    wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
+
+    # extract files, configure and compare
+
+    # libevent installation
+    tar xvzf ${LIBEVENT_NAME}.tar.gz
+    cd $LIBEVENT_NAME
+    ./configure --prefix=$TARGET_DIR --disable-shared
+    make
+    make install
+    cd -
+
+    # ncurses installation
+    tar xvzf ${NCURSES_NAME}.tar.gz
+    cd $NCURSES_NAME
+    ./configure --prefix=$TARGET_DIR
+    make
+    make install
+    cd -
+
+    # tmux installation
+    tar xvzf ${TMUX_NAME}.tar.gz
+    cd $TMUX_NAME
+    local CFLAGS="-I$TARGET_DIR/include -I$TARGET_DIR/include/ncurses"
+    local LDFLAGS="-L$TARGET_DIR/lib -L$TARGET_DIR/include -L$TARGET_DIR/include/ncurses"
+    ./configure CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS
+    CPPFLAGS=$CFLAGS LDFLAGS="-static $LDFLAGS" make
+    cp tmux $TARGET_DIR/bin
+    cd -
+
+    # verification
+    tmux -V
 }
 
 _install ()
