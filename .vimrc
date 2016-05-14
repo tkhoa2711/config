@@ -87,6 +87,7 @@
 " :w !diff % -      : show diff of last saved version with current unsaved version
 " :colorscheme      : show current colorscheme
 " :so $MYVIMRC      : reload (source) vim config
+" :so %             : source current buffer
 " :set <op>?        : display the option value
 " make              : built-in make
 " X                 : encrypt current buffer with prompted password
