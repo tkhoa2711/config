@@ -129,6 +129,7 @@ _install ()
     _setup_symlink
     _setup_emacs
     _setup_vim
+    _setup_tmux
 }
 
 _uninstall ()
