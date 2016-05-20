@@ -3,8 +3,7 @@
 (use-package exec-path-from-shell
   :defer nil
   :config
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize)))
+  (exec-path-from-shell-initialize))
 
 (provide 'init-env)
 
