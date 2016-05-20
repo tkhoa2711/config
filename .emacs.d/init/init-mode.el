@@ -60,8 +60,22 @@
 ; try to automagically figure out indentation
 (setq py-smart-indentation t)
 
+;; flyspell-mode --------------------------------------------------------------
+(dolist (hook '(text-mode-hook
+                org-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode))))
 
-;; ===========================================================================
+;; also spell-check comments and strings when programming
+(dolist (mode '(emacs-lisp-mode-hook
+                inferior-lisp-mode-hook
+                c-mode-hook
+                c++-mode-hook
+                js-mode-hook
+                python-mode-hook))
+  (add-hook mode (lambda () (flyspell-prog-mode))))
+
+
+;; ============================================================================
 ;; loading SLIME
 
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
