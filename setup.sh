@@ -88,9 +88,9 @@ _setup_tmux ()
     local NCURSES_NAME=ncurses-${NCURSES_VERSION}
 
     # download source files for tmux, libevent, and ncurses
-    wget -O tmux-${TMUX_VERSION}.tar.gz https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz
-    wget https://github.com/downloads/libevent/libevent/libevent-${LIBEVENT_VERSION}-stable.tar.gz
-    wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
+    wget -O ${TMUX_NAME}.tar.gz https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${TMUX_NAME}.tar.gz
+    wget -O ${LIBEVENT_NAME}.tar.gz https://github.com/downloads/libevent/libevent/${LIBEVENT_NAME}.tar.gz
+    wget -O ${NCURSES_NAME}.tar.gz ftp://ftp.gnu.org/gnu/ncurses/${NCURSES_NAME}.tar.gz
 
     # extract files, configure and compare
 
