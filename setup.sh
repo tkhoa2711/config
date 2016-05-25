@@ -98,7 +98,7 @@ _setup_tmux ()
     # extract files, configure and compare
 
     # libevent installation
-    tar xvzf ${LIBEVENT_NAME}.tar.gz
+    mkdir -p ${LIBEVENT_NAME} && tar xvzf ${LIBEVENT_NAME}.tar.gz -C ${LIBEVENT_NAME} --strip-components 1
     cd $LIBEVENT_NAME
     ./configure --prefix=$TARGET_DIR --disable-shared
     make
