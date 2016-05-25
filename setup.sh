@@ -100,6 +100,7 @@ _setup_tmux ()
     # libevent installation
     mkdir -p ${LIBEVENT_NAME} && tar xvzf ${LIBEVENT_NAME}.tar.gz -C ${LIBEVENT_NAME} --strip-components 1
     cd $LIBEVENT_NAME
+    ./autogen.sh
     ./configure --prefix=$TARGET_DIR --disable-shared
     make
     make install
