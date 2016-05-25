@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# be verbose
+set -x
+
 # bail out on error
 set -e
 
