@@ -78,7 +78,7 @@ _setup_tmux ()
     TMUX_VERSION=2.1
     LIBEVENT_VERSION=2.0.21
     NCURSES_VERSION=5.9
-    CURRENT_VERSION=$(tmux -V 2>/dev/null)
+    CURRENT_VERSION=$(which tmux &>/dev/null && tmux -V 2>/dev/null)
     if [[ "$CURRENT_VERSION" =~ $TMUX_VERSION ]]; then
         return
     fi
