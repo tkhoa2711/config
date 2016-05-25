@@ -119,8 +119,8 @@ _setup_tmux ()
     cd $TMUX_NAME
     local CFLAGS="-I$TARGET_DIR/include -I$TARGET_DIR/include/ncurses"
     local LDFLAGS="-L$TARGET_DIR/lib -L$TARGET_DIR/include -L$TARGET_DIR/include/ncurses"
-    ./configure CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS
-    CPPFLAGS=$CFLAGS LDFLAGS="-static $LDFLAGS" make
+    ./configure CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
+    CPPFLAGS="$CFLAGS" LDFLAGS="-static $LDFLAGS" make
     cp tmux $TARGET_DIR/bin
     cd -
 
