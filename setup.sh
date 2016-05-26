@@ -78,13 +78,13 @@ _setup_tmux ()
     TMUX_VERSION=2.1
     LIBEVENT_VERSION=2.0.21
     NCURSES_VERSION=5.9
-    CURRENT_VERSION=$(which tmux &>/dev/null && tmux -V 2>/dev/null)
+    CURRENT_VERSION=$(command -v tmux >/dev/null 2>&1 && tmux -V 2>/dev/null)
     if [[ "$CURRENT_VERSION" =~ $TMUX_VERSION ]]; then
         return
     fi
 
     TARGET_DIR=$HOME/local
-    mkdir -p $TARGET_DIR
+    mkdir -p $TARGET_DIR/bin
 
     local TMUX_NAME=tmux-${TMUX_VERSION}
     local LIBEVENT_NAME=libevent-${LIBEVENT_VERSION}-stable
@@ -121,7 +121,7 @@ _setup_tmux ()
     local LDFLAGS="-L$TARGET_DIR/lib -L$TARGET_DIR/include -L$TARGET_DIR/include/ncurses"
     ./configure CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
     CPPFLAGS="$CFLAGS" LDFLAGS="-static $LDFLAGS" make
-    cp tmux $TARGET_DIR/bin
+    cp tmux $TARGET_DIR/bin/
     cd -
 
     # verification
