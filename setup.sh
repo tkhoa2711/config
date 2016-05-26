@@ -78,13 +78,14 @@ _setup_tmux ()
     TMUX_VERSION=2.1
     LIBEVENT_VERSION=2.0.21
     NCURSES_VERSION=5.9
-    CURRENT_VERSION=$(command -v tmux >/dev/null 2>&1 && tmux -V 2>/dev/null)
+    CURRENT_VERSION="$(tmux -V 2>/dev/null)"
     if [[ "$CURRENT_VERSION" =~ $TMUX_VERSION ]]; then
         return
     fi
 
     TARGET_DIR=$HOME/local
     mkdir -p $TARGET_DIR/bin
+    export PATH=$TARGET_DIR/bin:$PATH
 
     local TMUX_NAME=tmux-${TMUX_VERSION}
     local LIBEVENT_NAME=libevent-${LIBEVENT_VERSION}-stable
