@@ -83,7 +83,7 @@ _setup_tmux ()
         return
     fi
 
-    TARGET_DIR=$HOME/local
+    local TARGET_DIR=$HOME/local
     mkdir -p $TARGET_DIR/bin
     export PATH=$TARGET_DIR/bin:$PATH
 
