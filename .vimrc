@@ -293,6 +293,9 @@ set nowrap                      " no text wrapping
 " toggle spell checking
 nnoremap <Leader>s :set spell!<CR>
 
+" turn on word completion
+set complete+=kspell
+
 
 " -------------------------------------------------------------------------
 " WINDOWS
