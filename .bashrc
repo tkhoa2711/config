@@ -132,7 +132,7 @@ export EMACS_D=~/.emacs.d
 # -----------------------------------------------------------------------
 # python
 # -----------------------------------------------------------------------
-if [[ `which virtualenvwrapper.sh 2>/dev/null 1>&2` ]] && [[ "$?" == "0" ]]; then
+if [[ "$(command -V virtualenvwrapper.sh 2>/dev/null)" != "" ]]; then
     #alias virtualenv='~/source/py-env0/bin/virtualenv'
     export PATH=~/source/py-env0/bin:$PATH
     export WORKON_HOME="$HOME/.virtualenvs"
