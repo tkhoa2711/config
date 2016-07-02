@@ -1,6 +1,9 @@
 ;;; init-formatting.el
 
 (set-language-environment "utf-8")
+(set-default-coding-systems 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 
 (setq-default
  indent-tabs-mode nil ; no tab please!
