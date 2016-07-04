@@ -35,19 +35,16 @@ transfer = transplant -s
 
 [extensions]
 convert =
-autosync =
 progress =
 graphlog =
 rebase =
 mq =
 fetch =
-mercurial_keyring =
 highlight =
 color =
 histedit =
 extdiff =
 notify =
-hgsubversion =
 shelve =
 transplant =
 purge =
