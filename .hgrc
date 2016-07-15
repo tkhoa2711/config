@@ -1,6 +1,8 @@
 ; -*- mode: conf -*-
 
-; frequently used commands
+; ----------------------------------------------------------------------------
+; FREQUENTLY USED COMMANDS
+; ============================================================================
 ;
 ; view diff of a shelve
 ;   hg shelve -l -p [name]
@@ -17,6 +19,9 @@
 ;   hg status -n --change REV
 ;   hg log -vr REV
 ;
+; move changeset from one branch to another
+;   hg transplant --log -s URL CHANGESET
+;
 ; ----------------------------------------------------------------------------
 
 [alias]
@@ -25,6 +30,9 @@ editrc = !$EDITOR `$HG root`/.hg/hgrc
 ; difc = log -vpr 
 difs = shelve -l -p
 transfer = transplant -s
+show = log --patch --verbose --rev
+lg = log --template "{label('custom.rev', rev)}\t{label('custom.phase', phase)}\t{label('custom.tag',tags)}\t{desc|firstline} {label('custom.age', date|age)#
+
 
 [defaults]
 ; rebase = --keepbranches
