@@ -65,6 +65,9 @@ fetch = -m"MERGE Automated merge with latest chages"
 username = $USER
 merge = internal:merge
 
+[bookmarks]
+track.current = True
+
 [pager]
 attend =
 pager = less -FSRX
