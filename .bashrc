@@ -29,34 +29,6 @@
 
 
 # -----------------------------------------------------------------------
-# choose which branch version to work on
-# -----------------------------------------------------------------------
-<<COMMENT
-if [ -n "$1" ]; then
-  SELECTION=$1
-else
-  echo ""
-  echo "Select a BRANCH to use [default: trunk]"
-  echo "  (1) trunk"
-  echo "  (2) release"
-  echo ""
-  read SELECTION
-fi
-
-case ${SELECTION} in
-    1)
-        export BRANCH=trunk
-        ;;
-    2)
-        export BRANCH=release
-        ;;
-    *)
-        export BRANCH=trunk
-        ;;
-esac
-COMMENT
-
-# -----------------------------------------------------------------------
 # OS-specific configs
 # -----------------------------------------------------------------------
 case "$OSTYPE" in
