@@ -96,6 +96,9 @@
 " .                 : repeat last change
 " @:                : repeat last command
 " J                 : join current line with the line below
+" q[a-z]            : start recording macro into register [a-z]
+" [N]@[a-z]         : repeat the action of macro stored inside register [a-z] N times
+" @@                : repeat the previous macro
 "
 "____________________ vim-trailing-whitespace
 "
