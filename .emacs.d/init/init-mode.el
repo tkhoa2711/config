@@ -74,6 +74,22 @@
                 python-mode-hook))
   (add-hook mode (lambda () (flyspell-prog-mode))))
 
+;; guide-key-mode -------------------------------------------------------------
+(eval-when-compile
+  (use-package guide-key)
+  (require 'guide-key)
+  (setq guide-key/guide-key-sequence '("C-x" "C-x 4"))
+  (setq guide-key/recursive-key-sequence-flag t)
+  (setq guide-key/idle-delay 0.1)
+  (guide-key-mode 1)
+
+  (defun guide-key/my-hook-function-for-org-mode ()
+    (guide-key/add-local-guide-key-sequence "C-c")
+    (guide-key/add-local-guide-key-sequence "C-c C-x")
+    (guide-key/add-local-highlight-command-regexp "org-"))
+
+  (add-hook 'org-mode-hook 'guide-key/my-hook-function-for-org-mode)
+  )
 
 ;; ============================================================================
 ;; loading SLIME
@@ -133,6 +149,9 @@
 
 ;; display-time-mode ------------------
 (display-time-mode 1)
+
+;; wsd-mode ---------------------------
+(use-package wsd-mode)
 
 ;; open recent files ------------------
 (require 'recentf)
