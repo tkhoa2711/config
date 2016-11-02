@@ -41,6 +41,8 @@
 " [gg|G]            : move to first/last line
 " [H|M|L]           : move to top/middle/bottom of screen
 " Ctrl-[Y|E]        : move the screen up/down by 1 row
+" Ctrl-[f|b]        : move forward/backward 1 screen i.e. page down/up
+" Ctrl-[d|u]        : move forward/backward 1/2 screen
 " z[h|l]            : move the screen to left/right
 " %                 : jump to the matching open/close brace
 "
