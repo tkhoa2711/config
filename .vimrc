@@ -29,6 +29,7 @@
 " retab             : change all existing tab characters to match current tab settings
 " gq                : format the current line
 " gqap              : format the current paragraph
+" gg=G              : indent the whole file
 "
 " ___________________ MOVING SCREEN/CURSOR
 "
@@ -358,6 +359,7 @@ if has("autocmd")
     filetype plugin indent on
 
     au filetype html setl ts=2 sts=2 sw=2 et
+    au filetype xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 endif
 
 " toggle on/off paste mode. Turn on paste-mode when pasting already-indented text
