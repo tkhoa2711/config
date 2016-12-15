@@ -61,9 +61,16 @@
 (setq py-smart-indentation t)
 
 ;; flyspell-mode --------------------------------------------------------------
+;; (when (executable-find "hunspell")
+  ;; (setq ispell-program-name "hunspell")
+  ;; ;(setq ispell-really-hunspell t)
+  ;; (setq ispell-local-dictionary "en_US")
+  ;; (setq ispell-local-dictionary-alist
+  ;;       '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8))))
+
 (dolist (hook '(text-mode-hook
                 org-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode))))
+  (add-hook hook (lambda () (flyspell-mode 1))))
 
 ;; also spell-check comments and strings when programming
 (dolist (mode '(emacs-lisp-mode-hook
@@ -73,6 +80,12 @@
                 js-mode-hook
                 python-mode-hook))
   (add-hook mode (lambda () (flyspell-prog-mode))))
+
+;; Fix right-mouse click on Mac does not trigger `[mouse-2]'
+(eval-after-load "flyspell"
+  '(progn
+     (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+     (define-key flyspell-mouse-map [mouse-3] #'undefined)))
 
 ;; guide-key-mode -------------------------------------------------------------
 (eval-when-compile
