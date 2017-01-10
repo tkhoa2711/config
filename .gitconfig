@@ -32,7 +32,7 @@
     amend = commit -a --amend
 
     # display git log in a nice hierarchy
-    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    tree = log --graph --decorate --pretty=medium --abbrev-commit --all
 
     # grab all stuffs from upstream and compare current branch against the upstream master branch
     in = !git fetch && git log ..origin/master
