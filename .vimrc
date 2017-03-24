@@ -60,6 +60,8 @@
 " edit              : open new file in the current tab/window
 " tabedit           : open new file in a new tab
 " :[sp|vs]          : open new file in a horizontal/vertical split
+" Ctrl-ww           : switch between split planes
+" Ctrl-wq           : close the current pane
 " g[t|T]            : move to next/previous tab
 "
 " ___________________ MARK/REGISTER
