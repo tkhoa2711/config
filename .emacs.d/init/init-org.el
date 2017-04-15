@@ -2,7 +2,11 @@
 
 
 ;; enable syntax highlighting when exporting to HTML
-(setq org-src-fontify-natively t)
+;; enable indentation within source code block
+;; also preserve indentation - do not add 2 spaces before every line
+(setq org-src-fontify-natively t
+      org-src-preserve-indentation t
+      org-src-tab-acts-natively t)
 
 (setq org-hide-emphasis-markers t)
 
