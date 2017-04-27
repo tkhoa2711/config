@@ -526,8 +526,9 @@ endif " has("autocmd")
 " NERDTree ----------------------------
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeWinSize     = 50
-let NERDTreeQuitOnOpen  = 1     " close the tree window after opening a file
+let NERDTreeQuitOnOpen  = 0     " close the tree window after opening a file
 let NERDTreeDirArrows   = 0     " use +/~ chars when displaying directories instead of arrows
+autocmd VimEnter * NERDTree
 
 " CtrlP -------------------------------
 let g:ctrlp_follow_symlinks = 1
