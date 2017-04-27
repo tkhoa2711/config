@@ -261,7 +261,7 @@ endtry
 " use # at end of line to mark lines that extend off-screen
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-autocmd filetype html,xml set listchars-=tab:>.     " not showing tabs for these filetypes
+autocmd filetype javascript,html,xml set listchars-=tab:>.      " not showing tabs for these filetypes
 
 " toggle displaying of whitespace character
 nnoremap <Leader><Leader> :set list!<CR>
@@ -271,6 +271,8 @@ au BufRead,BufNewFile .bash_* set filetype=sh
 au BufRead,BufNewFile *.asd set filetype=lisp
 au BufRead,BufNewFile *.lsp set filetype=newlisp
 
+" configure spacing for indentation
+au filetype javascript,json,html,css setl sw=2 sts=2 et
 
 " -------------------------------------------------------------------------
 " SEARCHING
@@ -567,3 +569,8 @@ let g:tagbar_autopreview = 0
 " region expanding with just 'v' and 'C-v'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" vim-javascript ----------------------
+let g:javascript_plugin_jsdoc = 1   " enable syntax highlighting for JSDocs
+let g:javascript_plugin_ngdoc = 1   " additional syntax highlighting for NGDocs
+"
