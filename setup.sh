@@ -76,8 +76,8 @@ _setup_vim ()
 _setup_tmux ()
 {
     local TMUX_VERSION=2.1
-    local LIBEVENT_VERSION=2.0.21
-    local NCURSES_VERSION=5.9
+    local LIBEVENT_VERSION=2.0.22
+    local NCURSES_VERSION=6.0
     local CURRENT_VERSION=$(tmux -V 2>/dev/null)
     if [[ "$CURRENT_VERSION" =~ $TMUX_VERSION ]]; then
         return
