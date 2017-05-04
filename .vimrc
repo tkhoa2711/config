@@ -115,6 +115,8 @@
 " Ctrl-ww           : switch between windows
 " s                 : open in vertical split window
 " t|T               : open in new[silent] tab
+" ?                 : show help
+" m                 : show menu for creating/editing files and directories
 "
 "____________________ CtrlP
 "
