@@ -102,7 +102,10 @@ _setup_tmux ()
     mkdir -p ${LIBEVENT_NAME} && tar xvzf ${LIBEVENT_NAME}.tar.gz -C ${LIBEVENT_NAME} --strip-components 1
     cd $LIBEVENT_NAME
     ./autogen.sh
-    ./configure --prefix=$TARGET_DIR --disable-shared
+    # fix openssl linking issue on newer OS X versions
+    local CPPFLAGS=-I/usr/local/opt/openssl/include
+    local LDFLAGS=-L/usr/local/opt/openssl/lib
+    CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS" ./configure --prefix=$TARGET_DIR --disable-shared
     make
     make install
     cd -
