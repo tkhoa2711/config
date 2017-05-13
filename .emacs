@@ -62,7 +62,7 @@
 ;
 ;; COMPILATION, MESSAGES
 ; C-c C-c : interrupt the current evaluating form
-; C-c C-c : compile current form (funtion)
+; C-c C-c : compile current form (function)
 ; C-c C-k : compile current buffer source file and load it
 ; C-c M-k : compile current buffer but don't load it
 ; M-[n|p] : step forward/backward through annotations post compilation
