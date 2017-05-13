@@ -189,6 +189,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin list
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'endel/ctrlp-filetype.vim'
 Plugin 'flazz/vim-colorschemes'
