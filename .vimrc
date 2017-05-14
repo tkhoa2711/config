@@ -534,7 +534,6 @@ let NERDTreeWinSize     = 50
 let NERDTreeQuitOnOpen  = 0     " close the tree window after opening a file
 let NERDTreeDirArrows   = 0     " use +/~ chars when displaying directories instead of arrows
 let NERDTreeShowHidden  = 1     " show hidden files
-autocmd VimEnter * NERDTree
 
 " CtrlP -------------------------------
 let g:ctrlp_follow_symlinks = 1
