@@ -201,6 +201,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tkhoa2711/vim-togglenumber'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'townk/vim-autoclose'
 Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
