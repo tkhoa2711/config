@@ -203,6 +203,7 @@ Plugin 'tkhoa2711/vim-togglenumber'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'townk/vim-autoclose'
 Plugin 'pangloss/vim-javascript'
+Plugin 'vim-scripts/closetag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()               " required
