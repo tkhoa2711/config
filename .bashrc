@@ -122,7 +122,6 @@ export GTEST_DIR=~/source/gtest
 # -----------------------------------------------------------------------
 # command prompt
 # -----------------------------------------------------------------------
-
 set_prompt ()
 {
     local BLACK="\[\e[0;30m\]"
@@ -143,7 +142,15 @@ set_prompt ()
 set_prompt
 
 # -----------------------------------------------------------------------
+# NVM
+# -----------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion ] ]
+
+# -----------------------------------------------------------------------
 # load other settings here
+# -----------------------------------------------------------------------
 BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color .bash_local)
 BASH_UTIL_FILE_DIR=$HOME
 for file in "${BASH_UTIL_FILE_LIST[@]}"; do
