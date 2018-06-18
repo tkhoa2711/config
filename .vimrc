@@ -90,6 +90,7 @@
 "____________________ MISC
 "
 " :w !diff % -      : show diff of last saved version with current unsaved version
+" :sav <name>       : save the current buffer as a new file and open that file
 " :colorscheme      : show current colorscheme
 " :so $MYVIMRC      : reload (source) vim config
 " :so %             : source current buffer
