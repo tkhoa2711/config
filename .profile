@@ -27,23 +27,3 @@ export CLICOLOR=1
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx     # for black background
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd      # emulate default coloring on linux 'ls'
 
-# email settings
-export EAMIL='ltkhoa2711@gmail.com'
-export NAME='Khoa Le'
-export SMTPSERVER='smtp.gmail.com'
-
-##
-# Your previous /Users/tkhoa2711/.profile file was backed up as /Users/tkhoa2711/.profile.macports-saved_2015-01-15_at_00:27:53
-##
-
-# MacPorts Installer addition on 2015-01-15_at_00:27:53: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-# OPAM configuration
-. /Users/tkhoa2711/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-# Setting PATH for Python 3.5
-# The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH
