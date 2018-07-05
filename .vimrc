@@ -276,9 +276,12 @@ nnoremap <Leader><Leader> :set list!<CR>
 au BufRead,BufNewFile .bash_* set filetype=sh
 au BufRead,BufNewFile *.asd set filetype=lisp
 au BufRead,BufNewFile *.lsp set filetype=newlisp
+au BufRead,BufNewFile .env set filetype=conf
+au BufRead,BufNewFile .env.example set filetype=conf
 
 " configure spacing for indentation
 au filetype javascript,json,html,css setl sw=2 sts=2 et
+
 
 " -------------------------------------------------------------------------
 " SEARCHING
