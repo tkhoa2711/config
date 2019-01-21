@@ -3,6 +3,7 @@
 [user]
     name = Khoa Le
     email = ltkhoa2711@gmail.com
+    signingkey = B2702413A96534D6
 
 [push]
     default = simple
@@ -39,3 +40,6 @@
 
     # show diff of the given commit with its parent
     diffp = !git diff $@^!
+
+[commit]
+    gpgsign = true
