@@ -3,7 +3,7 @@
 [user]
     name = Khoa Le
     email = ltkhoa2711@gmail.com
-    signingkey = B2702413A96534D6
+    signingkey = 1EEE1E478CC47379
 
 [push]
     default = simple

@@ -194,6 +194,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'endel/ctrlp-filetype.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'hashivim/vim-terraform'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'majutsushi/tagbar'
@@ -582,4 +583,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " vim-javascript ----------------------
 let g:javascript_plugin_jsdoc = 1   " enable syntax highlighting for JSDocs
 let g:javascript_plugin_ngdoc = 1   " additional syntax highlighting for NGDocs
-"
+
+" vim-terraform -----------------------
+let g:terraform_fmt_on_save = 1     " automatically format on saving

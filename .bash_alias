@@ -82,4 +82,6 @@ alias path='echo -e ${PATH//:/\\n}'     # show $PATH in a nice way
 alias h='history'
 alias mnt='mount | column -t'           # show results of 'mount' in a nice format
 
+# common commands
+alias tf='terraform'
 
