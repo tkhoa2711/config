@@ -24,6 +24,7 @@
     b = branch
     last = log -1 HEAD
     cl = clean -df
+    au = add -u
 
     # pull remote changes and rebase them, also remove remote-tracking branches
     # that no longer exist on the remote; then update all the submodules
@@ -40,6 +41,10 @@
 
     # show diff of the given commit with its parent
     diffp = !git diff $@^!
+
+    # remove the last commit
+    # NOTE: try not to use this often
+    rollback = reset --hard HEAD^
 
 [commit]
     gpgsign = true
