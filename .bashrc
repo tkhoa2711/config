@@ -148,6 +148,25 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion ] ]
 
+# https://stackoverflow.com/questions/23556330/run-nvm-use-automatically-every-time-theres-a-nvmrc-file-on-the-directory
+enter_directory()
+{
+    if [[ $PWD == $PREV_PWD ]]; then
+        return
+    fi
+
+    PREV_PWD=$PWD
+    if [[ -f ".nvmrc" ]]; then
+        nvm use
+        NVM_DIRTY=true
+    elif [[ $NVM_DIRTY = true ]]; then
+        nvm use default
+        NVM_DIRTY=false
+    fi
+}
+
+export PROMPT_COMMAND=enter_directory
+
 # -----------------------------------------------------------------------
 # load other settings here
 # -----------------------------------------------------------------------
