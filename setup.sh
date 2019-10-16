@@ -75,9 +75,9 @@ _setup_vim ()
 
 _setup_tmux ()
 {
-    local TMUX_VERSION=2.1
-    local LIBEVENT_VERSION=2.0.22
-    local NCURSES_VERSION=6.0
+    local TMUX_VERSION=2.9a
+    local LIBEVENT_VERSION=2.1.8-stable
+    local NCURSES_VERSION=6.1
     local CURRENT_VERSION=$(tmux -V 2>/dev/null)
     if [[ "$CURRENT_VERSION" =~ $TMUX_VERSION ]]; then
         return
@@ -88,12 +88,12 @@ _setup_tmux ()
     export PATH=$TARGET_DIR/bin:$PATH
 
     local TMUX_NAME=tmux-${TMUX_VERSION}
-    local LIBEVENT_NAME=libevent-${LIBEVENT_VERSION}-stable
+    local LIBEVENT_NAME=libevent-${LIBEVENT_VERSION}
     local NCURSES_NAME=ncurses-${NCURSES_VERSION}
 
     # download source files for tmux, libevent, and ncurses
     wget -O ${TMUX_NAME}.tar.gz https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${TMUX_NAME}.tar.gz
-    wget -O ${LIBEVENT_NAME}.tar.gz https://github.com/libevent/libevent/archive/release-${LIBEVENT_VERSION}-stable.tar.gz
+    wget -O ${LIBEVENT_NAME}.tar.gz https://github.com/libevent/libevent/releases/download/release-${LIBEVENT_VERSION}/${LIBEVENT_NAME}.tar.gz
     wget -O ${NCURSES_NAME}.tar.gz ftp://ftp.gnu.org/gnu/ncurses/${NCURSES_NAME}.tar.gz
 
     # extract files, configure and compare
