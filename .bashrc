@@ -104,14 +104,11 @@ export EMACS_D=~/.emacs.d
 # -----------------------------------------------------------------------
 # python
 # -----------------------------------------------------------------------
-if [[ "$(command -V virtualenvwrapper.sh 2>/dev/null)" != "" ]]; then
-    #alias virtualenv='~/source/py-env0/bin/virtualenv'
-    export PATH=~/source/py-env0/bin:$PATH
-    export WORKON_HOME="$HOME/.virtualenvs"
-    source virtualenvwrapper.sh
-
-    # default python working environment
-    # workon default
+# initialize pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
 fi
 
 # -----------------------------------------------------------------------
