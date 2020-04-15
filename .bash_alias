@@ -74,6 +74,12 @@ alias gerp='grep'                       # common typo
 alias grep='grep --color'
 alias egrep='egrep -n --color'
 
+# docker
+# remove all exited containers
+alias drmc='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+# remove all dangling images
+alias drmi='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+
 # misc
 alias c='clear'                         # equivalent to Ctrl-L
 alias br="printf '\e[47m%*s\n' \"${COLUMNS:-$(tput cols)}\" ''" # print out a visual break line
