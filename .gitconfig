@@ -19,9 +19,11 @@
     co = checkout
     st = status
     d = diff --color-words
+    ds = diff --staged
     dw = diff --word-diff
     l = log
     b = branch
+    rename = branch -m
     last = log -1 HEAD
     cl = clean -df
     au = add -u
