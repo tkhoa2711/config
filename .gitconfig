@@ -36,7 +36,7 @@
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
     # amend last commit with all staged and unstaged changes
-    amend = commit -a --amend
+    amend = commit --amend
 
     # display git log in a nice hierarchy
     tree = log --graph --decorate --pretty=medium --abbrev-commit --all
