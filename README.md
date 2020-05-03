@@ -10,3 +10,9 @@ Installation
 ```sh
 ./setup.sh
 ```
+
+or
+
+```sh
+curl -Ls https://raw.githubusercontent.com/tkhoa2711/config/master/setup.sh | bash
+```
