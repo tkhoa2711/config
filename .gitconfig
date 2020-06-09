@@ -58,3 +58,7 @@
     tool = vimdiff
     conflictstyle = diff3
     prompt = false
+
+[tag]
+    gpgSign = true
+    forceSignAnnotated = true
