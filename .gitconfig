@@ -51,6 +51,9 @@
     # NOTE: try not to use this often
     rollback = reset --hard HEAD^
 
+    # rename a stash
+    stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
+
 [commit]
     gpgsign = true
 
