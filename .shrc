@@ -89,7 +89,7 @@ fi
 # -----------------------------------------------------------------------
 # load other settings here
 # -----------------------------------------------------------------------
-BASH_UTIL_FILE_LIST=(.bash_alias .bash_local)
+BASH_UTIL_FILE_LIST=(.sh_function .bash_alias .bash_local)
 BASH_UTIL_FILE_DIR=$HOME
 for file in "${BASH_UTIL_FILE_LIST[@]}"; do
     [[ -f $BASH_UTIL_FILE_DIR/$file ]] && echo "Loading $file .." && source $BASH_UTIL_FILE_DIR/$file

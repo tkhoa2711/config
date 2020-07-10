@@ -143,7 +143,7 @@ export PROMPT_COMMAND=enter_directory
 # -----------------------------------------------------------------------
 # load other settings here
 # -----------------------------------------------------------------------
-BASH_UTIL_FILE_LIST=(.shrc .bash_function .bash_completion .bash_color)
+BASH_UTIL_FILE_LIST=(.shrc .bash_completion .bash_color)
 BASH_UTIL_FILE_DIR=$HOME
 for file in "${BASH_UTIL_FILE_LIST[@]}"; do
     [[ -f $BASH_UTIL_FILE_DIR/$file ]] && echo "Loading $file .." && source $BASH_UTIL_FILE_DIR/$file
