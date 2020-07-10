@@ -11,3 +11,8 @@ install_virtualenvwrapper()
 {
     $(pyenv which python) -m pip install virtualenvwrapper
 }
+
+mkvenv()
+{
+    mkvirtualenv $(basename $(pwd))
+}
