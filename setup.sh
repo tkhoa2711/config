@@ -26,6 +26,9 @@ SYMLINK_FILES=(
     .bashrc
     .bash_alias
     .bash_function
+    .bash_logout
+    .zshrc
+    .shrc
     .inputrc
     .colordiffrc
     .emacs
