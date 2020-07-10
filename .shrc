@@ -1,0 +1,96 @@
+# The common shell configuration
+
+# -----------------------------------------------------------------------
+# OS-specific configs
+# -----------------------------------------------------------------------
+case "$OSTYPE" in
+    linux*)     # Linux
+        alias duhere='\du -h --max-depth=1'
+        ;;
+
+    bsd*)       # BSD
+        ;;
+
+    solaris*)   # Solaris
+        ;;
+
+    darwin*)    # Mac OS X
+        # alias
+        alias duhere='\du -h -d 1'
+
+        # PATH
+        export PATH="/usr/local/git/bin:$PATH"  # use the latest git version
+
+        export GREP_COLOR_OPTION='-color'
+
+        # my own config on Mac OS
+        alias devdir='cd ~/source/dev'
+        alias sourcedir='cd ~/source'
+        alias trashdir='cd ~/.Trash'
+        ;;
+
+        # autojump
+        # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+    cygwin)     # Cygwin on Windows
+        ;;
+
+    msys)       # Windows, MinGW
+        ;;
+
+    *)
+        echo "Unknow OSTYPE: $OSTYPE"
+        ;;
+esac
+
+# -----------------------------------------------------------------------
+# editing
+# -----------------------------------------------------------------------
+export EDITOR=vim
+
+# emacs FTW!!!
+set -o emacs
+
+# -----------------------------------------------------------------------
+# PATH settings
+# -----------------------------------------------------------------------
+export PATH=/usr/local/bin:~/local/bin:$PATH
+export EMACS_D=~/.emacs.d
+
+# -----------------------------------------------------------------------
+# python
+# -----------------------------------------------------------------------
+# initialize pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+# -----------------------------------------------------------------------
+# GTest
+# -----------------------------------------------------------------------
+export GTEST_DIR=~/source/gtest
+
+# -----------------------------------------------------------------------
+# NVM
+# -----------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion ] ]
+
+# -----------------------------------------------------------------------
+# ruby
+# -----------------------------------------------------------------------
+if command -v rbenv 1>/dev/null 2>&1; then
+    eval "$(rbenv init -)"
+fi
+
+# -----------------------------------------------------------------------
+# load other settings here
+# -----------------------------------------------------------------------
+BASH_UTIL_FILE_LIST=(.bash_alias .bash_local)
+BASH_UTIL_FILE_DIR=$HOME
+for file in "${BASH_UTIL_FILE_LIST[@]}"; do
+    [[ -f $BASH_UTIL_FILE_DIR/$file ]] && echo "Loading $file .." && source $BASH_UTIL_FILE_DIR/$file
+done

@@ -96,27 +96,6 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 shopt -s checkwinsize
 
 # -----------------------------------------------------------------------
-# PATH settings
-# -----------------------------------------------------------------------
-export PATH=/usr/local/bin:~/local/bin:$PATH
-export EMACS_D=~/.emacs.d
-
-# -----------------------------------------------------------------------
-# python
-# -----------------------------------------------------------------------
-# initialize pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
-# -----------------------------------------------------------------------
-# GTest
-# -----------------------------------------------------------------------
-export GTEST_DIR=~/source/gtest
-
-# -----------------------------------------------------------------------
 # command prompt
 # -----------------------------------------------------------------------
 set_prompt ()
@@ -141,9 +120,6 @@ set_prompt
 # -----------------------------------------------------------------------
 # NVM
 # -----------------------------------------------------------------------
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion ] ]
 
 # https://stackoverflow.com/questions/23556330/run-nvm-use-automatically-every-time-theres-a-nvmrc-file-on-the-directory
 enter_directory()
@@ -167,18 +143,11 @@ export PROMPT_COMMAND=enter_directory
 # -----------------------------------------------------------------------
 # load other settings here
 # -----------------------------------------------------------------------
-BASH_UTIL_FILE_LIST=(.bash_alias .bash_function .bash_completion .bash_color .bash_local)
+BASH_UTIL_FILE_LIST=(.shrc .bash_function .bash_completion .bash_color)
 BASH_UTIL_FILE_DIR=$HOME
 for file in "${BASH_UTIL_FILE_LIST[@]}"; do
     [[ -f $BASH_UTIL_FILE_DIR/$file ]] && echo "Loading $file .." && source $BASH_UTIL_FILE_DIR/$file
 done
-
-# ---------------------------------------------------------------------------------------------------------------------------------
-# ruby
-# ---------------------------------------------------------------------------------------------------------------------------------
-if command -v rbenv 1>/dev/null 2>&1; then
-    eval "$(rbenv init -)"
-fi
 
 # ---------------------------------------------------------------------------------------------------------------------------------
 # autocomplete
