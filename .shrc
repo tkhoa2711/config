@@ -67,6 +67,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
+# virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+mkdir -p $WORKON_HOME
+[ -s ~/.pyenv/shims/virtualenvwrapper.sh ] && source ~/.pyenv/shims/virtualenvwrapper.sh
+
 # -----------------------------------------------------------------------
 # GTest
 # -----------------------------------------------------------------------

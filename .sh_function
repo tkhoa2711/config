@@ -6,3 +6,8 @@ function recent_dir ()
     local dir=$(\ls $1 | tail -1)
     echo "$1/$dir"
 }
+
+install_virtualenvwrapper()
+{
+    $(pyenv which python) -m pip install virtualenvwrapper
+}
