@@ -70,7 +70,7 @@ fi
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
-[ -s ~/.pyenv/shims/virtualenvwrapper.sh ] && source ~/.pyenv/shims/virtualenvwrapper.sh
+[ -s ~/.pyenv/shims/virtualenvwrapper.sh ] && ~/.pyenv/shims/virtualenvwrapper.sh
 
 # -----------------------------------------------------------------------
 # GTest
