@@ -37,6 +37,7 @@ SYMLINK_FILES=(
     .screenrc
     .gitconfig
     .gitignore
+    .tigrc
     .hgrc
     .hgignore_global
     .sbclrc
