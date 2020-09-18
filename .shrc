@@ -54,7 +54,8 @@ set -o emacs
 # -----------------------------------------------------------------------
 # PATH settings
 # -----------------------------------------------------------------------
-export PATH=/usr/local/bin:~/local/bin:$PATH
+export ANDROID_SDK=~/Library/Android/sdk
+export PATH=/usr/local/bin:~/local/bin:~/.local/bin:$ANDROID_SDK/platform-tools:$PATH
 export EMACS_D=~/.emacs.d
 
 # -----------------------------------------------------------------------
