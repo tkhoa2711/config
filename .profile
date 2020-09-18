@@ -27,3 +27,5 @@ export CLICOLOR=1
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx     # for black background
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd      # emulate default coloring on linux 'ls'
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
