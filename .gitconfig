@@ -6,7 +6,7 @@
     signingkey = 1EEE1E478CC47379
 
 [push]
-    default = simple
+    default = current
 
 [color]
     diff = auto
