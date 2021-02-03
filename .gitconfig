@@ -28,7 +28,9 @@
     cl = clean -df
     au = add -u
     s = stash
+    sl = stash list
     sp = stash pop
+    ss = stash show -p
     prb = pull --rebase
 
     # pull remote changes and rebase them, also remove remote-tracking branches
@@ -36,7 +38,10 @@
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
     # amend last commit with all staged and unstaged changes
-    amend = commit --amend
+    amend = commit --amend --no-edit
+
+    # undo last commit
+    undo = reset --soft HEAD^
 
     # display git log in a nice hierarchy
     tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
@@ -56,6 +61,8 @@
 
     # list all files in a commit
     files = diff-tree --no-commit-id --name-only -r
+
+    set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 
 [commit]
     gpgsign = true
