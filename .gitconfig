@@ -32,6 +32,7 @@
     sp = stash pop
     ss = stash show -p
     prb = pull --rebase
+    rbc = rebase --continue
 
     # pull remote changes and rebase them, also remove remote-tracking branches
     # that no longer exist on the remote; then update all the submodules
