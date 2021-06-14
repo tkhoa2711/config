@@ -56,6 +56,9 @@ set -o emacs
 # -----------------------------------------------------------------------
 export ANDROID_SDK=~/Library/Android/sdk
 export PATH=/usr/local/bin:~/local/bin:~/.local/bin:$ANDROID_SDK/platform-tools:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/protobuf/bin
 export EMACS_D=~/.emacs.d
 
 # -----------------------------------------------------------------------
