@@ -136,9 +136,15 @@ _setup_tmux ()
     tmux -V
 }
 
+_setup_apps ()
+{
+    brew bundle --verbose --file=Brewfile
+}
+
 _install ()
 {
     _setup_symlink
+    _setup_apps
     _setup_emacs
     _setup_vim
     _setup_tmux
