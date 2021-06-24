@@ -38,6 +38,10 @@
     # that no longer exist on the remote; then update all the submodules
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
+    # delete all local merged branches
+    # https://stackoverflow.com/a/21857717
+    cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
+
     # amend last commit with all staged and unstaged changes
     amend = commit --amend --no-edit
 
