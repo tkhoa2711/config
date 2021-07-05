@@ -14,6 +14,7 @@ alias lu='ls -alrt -F $GREP_COLOR_OPTION | grep $USER'
 alias lal='ls -altr $GREP_COLOR_OPTION'
 alias lcl='while true; do c; ll; sleep 2; done'
 alias j='autojump'
+alias s='cd ~/source/'
 
 #alias mv='mv-i'
 #alias rm='rm -i'
@@ -55,6 +56,7 @@ alias vimrc='vim ~/.vimrc'              # edit these as swift as possible
 alias bashrc='vim ~/.bashrc'
 alias emacsrc='vim ~/.emacs'
 alias hgrc='vim ~/.hgrc'
+alias gitrc='vim ~/.gitconfig'
 
 # editing
 alias vi='vim -X'
