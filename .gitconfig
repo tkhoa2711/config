@@ -26,6 +26,7 @@
     rename = branch -m
     last = log -1 HEAD
     cl = clean -df
+    cu = cleanup # see the actual alias below
     au = add -u
     s = stash
     sl = stash list
