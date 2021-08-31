@@ -70,6 +70,8 @@
 
     set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 
+    rbi = "!git rebase -i \"$1\"^ #"
+
 [commit]
     gpgsign = true
 
