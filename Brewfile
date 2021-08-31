@@ -2,6 +2,7 @@ tap "homebrew/cask"
 
 brew "awscli"
 brew "tig"
+brew "interactive-rebase-tool"
 brew "tmux"
 brew "go"
 brew "jq"
