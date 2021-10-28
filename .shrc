@@ -59,6 +59,7 @@ export PATH=/usr/local/bin:~/local/bin:~/.local/bin:$ANDROID_SDK/platform-tools:
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/protobuf/bin
+export PATH=$HOME/.tgenv/bin:$PATH
 export EMACS_D=~/.emacs.d
 
 # -----------------------------------------------------------------------
