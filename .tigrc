@@ -3,6 +3,12 @@
 
 set main-view-id = yes
 
+# Reference:
+# - https://stackoverflow.com/questions/52542803/take-sha-number-of-commit-by-tig
+# - https://github.com/jonas/tig/pull/678
+bind generic 9 +@sh -c "printf '%s' $(git rev-parse --short %(commit)) | pbcopy && echo Copied %(commit) to clipboard"
+
+
 # =============================================================================
 # Color settings
 # Copied from here https://github.com/cbertoldi/dotfiles/blob/master/tigrc.symlink
