@@ -29,3 +29,6 @@ export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd      # emulate default coloring on linux 
 
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# load Cargo, the package manager for Rust
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
