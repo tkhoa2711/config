@@ -286,6 +286,9 @@ au BufRead,BufNewFile .env.example set filetype=conf
 " configure spacing for indentation
 au filetype javascript,json,html,css setl sw=2 sts=2 et
 
+" other filetype-specific syntax settings
+au BufRead,BufNewFile *.md setl textwidth=120
+
 
 " -------------------------------------------------------------------------
 " SEARCHING
