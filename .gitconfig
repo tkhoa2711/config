@@ -19,7 +19,7 @@
     cm = commit
     co = checkout
     st = status
-    d = diff --color-words
+    d = diff
     ds = diff --staged
     dw = diff --word-diff
     l = log
