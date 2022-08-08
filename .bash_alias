@@ -54,9 +54,11 @@ alias wget='wget -c'                    # resume wget by default
 # dotfiles
 alias vimrc='vim ~/.vimrc'              # edit these as swift as possible
 alias bashrc='vim ~/.bashrc'
+alias zshrc='vim ~/.zshrc'
 alias emacsrc='vim ~/.emacs'
 alias hgrc='vim ~/.hgrc'
 alias gitrc='vim ~/.gitconfig'
+alias tigrc='vim ~/.tigrc'
 
 # editing
 alias vi='vim -X'
