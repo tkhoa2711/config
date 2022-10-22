@@ -33,6 +33,7 @@
     sl = stash list
     sp = stash pop
     ss = stash show -p
+    sw = switch
     prb = pull --rebase
     rbc = rebase --continue
     r = restore
