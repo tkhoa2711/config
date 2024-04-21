@@ -141,8 +141,14 @@ _setup_apps ()
     brew bundle --verbose --file=Brewfile
 }
 
+_setup_homebrew ()
+{
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
 _install ()
 {
+    _setup_homebrew
     _setup_symlink
     _setup_apps
     _setup_emacs
