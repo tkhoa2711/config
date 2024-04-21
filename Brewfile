@@ -1,8 +1,6 @@
 tap "golangci/tap"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
 brew "awscli"
 brew "tig"
@@ -15,6 +13,7 @@ brew "go"
 brew "jq"
 brew "tfenv"
 brew "tree"
+brew "emacs"
 
 cask "iterm2"
 cask "rectangle"
